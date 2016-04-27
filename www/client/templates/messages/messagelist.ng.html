@@ -1,0 +1,47 @@
+<ion-view title="消息中心">
+    <div class="bar bar-header bar-light">
+        <div class="h1 title">消息中心</div>
+
+        <a class="button button-clear button-positive"  ng-href="#/tab/usercenter/mine" ng-if="from == 'fromMine'">
+            <i class="icon-left ion-chevron-left padding" ></i>我的
+        </a>
+
+        <button class="button button-clear button-positive" ng-click="doRefresh()">
+            <i class="icon-right ion-android-refresh padding" ></i>
+        </button>
+    </div>
+
+    <ion-content class="has-header" padding="false" >
+
+        <!--<ion-refresher on-refresh="doRefresh()"-->
+                       <!--pulling-text="下拉刷新"-->
+                       <!--refreshing-text="刷新消息中...">-->
+        <!--</ion-refresher>-->
+
+        <ion-list >
+            <ion-item class="item"
+                      collection-repeat="item in items"
+                      ng-click="readMsg(item)"
+                    >
+                <span class="item-note" >
+                      {{item.dateCreated}}
+                </span>
+                <b>{{item.title}}</b>
+                <div class="spacer" style="height: 10px;"></div>
+                <p class="summary padding-left">
+                    {{item.content}}
+                </p>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+                ng-if="moreDataCanBeLoaded()"
+                on-infinite="loadMoreItems()"
+                icon="ion-loading-c"
+                distance="1%">
+        </ion-infinite-scroll>
+        <div align="center" ng-if="items.length==0">
+            <img ng-src="img/DDGL-03.png" style="margin-bottom: 30px;margin-top: 30px;width: 100px;"><br>
+            <span style="color: grey">您还没有消息</span>
+        </div>
+    </ion-content>
+</ion-view>

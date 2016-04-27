@@ -1,0 +1,28 @@
+<ion-view title="修改密码" style="background-color: #f5f5f5;">
+    <div class="bar bar-header bar-light" style="background-color: #f5f5f5;">
+        <a class="button button-clear button-positive" ng-href="#/tab/usercenter/mine">
+            <i class="icon-left ion-chevron-left padding" ></i>我的
+        </a>
+        <div class="h1 title">修改密码</div>
+    </div>
+    <ion-content class="has-header" padding="false" >
+        <form>
+            <label class="item item-input">
+                <span class="input-label">原密码</span>
+                <input type="password" placeholder="请输入原密码" ng-model="pwd.password">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">新的密码</span>
+                <input type="password" placeholder="6-16位数字或字母" ng-model="pwd.newpassword">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">重复密码</span>
+                <input type="password" placeholder="确认新密码" ng-model="pwd.repass">
+            </label>
+        </form>
+        <label class="item" style="border-bottom-width: 0px;background-color: #f5f5f5;">
+            <div class="spacer" style="height: 56px;"></div>
+            <button class="button button-positive button-block button-outline " ng-click="updatePwd()">确定</button>
+        </label>
+    </ion-content>
+</ion-view>

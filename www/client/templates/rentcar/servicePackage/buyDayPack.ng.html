@@ -1,0 +1,78 @@
+<ion-view title="购买包月包">
+
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive" ng-href="#/tab/home">
+            <i class="icon-left ion-chevron-left padding" ></i>首页
+        </a>
+        <div class="h1 title">购买包月包</div>
+    </div>
+    <ion-content padding="false" class="has-header">
+
+        <ion-list >
+            <ion-item class="item-divider">
+                <div class="card">
+                    <!--<div class="item item-divider row">-->
+                    <!--</div>-->
+                    <div class="item row assertive-bg " >
+                    </div>
+                    <div class="item row item-text-wrap ">
+                        <div class="row">
+                            <div class="col ">{{dayTimePack.name}}<span class="assertive" >{{dayTimePack.price}}元</span></div>
+                            <div class="col text-right"><p><small>{{dayTimePack.productDesc.attribute1}}</small></p></div>
+                        </div>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <ion-list >
+                            <ion-item class=" assertive stable-bg text-center" style="font-size: 25px;">
+                                可用天数：{{dayTimePack.packageDay}}天
+                            </ion-item>
+                        </ion-list >
+                    </div>
+                    <div class="item item-text-wrap">
+                        <!--<p>网点：1+1大厦</p>-->
+                        <p>网点：{{dayTimePack.packageDesc.attribute1}}</p>
+                    </div>
+                    <div class="item item-text-wrap stable-bg">
+                        <!--<small><p>地址：北京市海淀区彩和坊路10号1+1大厦停车场B5层</p></small>-->
+                        <small><p>地址：{{dayTimePack.packageDesc.attribute2}}</p></small>
+                    </div>
+
+                    <div class="item  item-text-wrap row" >
+                        <div class="row row-center">
+                            <div class="col "><p>期限：{{dayTimePack.packageDay}}天</p></div>
+                            <!--<div class="col text-right">-->
+                            <!--<button class="button button-small button-assertive" >-->
+                            <!--<strong>立即购买</strong>-->
+                            <!--</button>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <!--<button style="margin: 0px" class="button button-positive button-block " ng-click=buyPack(dayTimePack.id)>立即购买</button>-->
+                    <button style="margin: 0px" class="button button-positive button-block " ng-click="go_url('packageOrder',{packId:dayTimePack.id})">立即购买</button>
+                </div>
+            </ion-item>
+            <ion-item>
+                <p>{{dayTimePack.name}}使用说明：</p>
+            </ion-item>
+            <ion-item class="item-text-wrap stable-bg">
+                <p ng-bind-html="dayTimePack.packageDesc.attribute4">
+                </p>
+                <div class="spacer" style="height: 10px;"></div>
+                <p><i class="icon ion-alert-circled positive"></i>&nbsp;包过期时间：<span class="positive">{{dayTimePack.packageDesc.attribute5}}</span></p>
+            </ion-item>
+
+        </ion-list >
+    </ion-content>
+
+</ion-view>
+
+<!--<div class="tabs-icon-top tabs-positive" ng-controller="tabsController">-->
+    <!--<ion-tab title="租车" icon="ion-model-s" href="#/tab/rentcar/main">-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="消息" icon="ion-chatbox" href="#/tab/messages/messagelist">-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="客服" icon="ion-ios-telephone" ng-click="showCall()">-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="我的" icon="ion-person" href="#/tab/usercenter/mine">-->
+    <!--</ion-tab>-->
+<!--</div>-->

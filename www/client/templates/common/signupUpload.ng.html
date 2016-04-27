@@ -1,0 +1,82 @@
+<ion-view title="证件审核">
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive" ng-href="#/tab/usercenter/mine" ng-if="model.uploadType=='fromMine'">
+            <i class="icon-left ion-chevron-left padding" ></i>我的
+        </a>
+        <div class="h1 title">上传证件信息</div>
+        <!--<button class="button button-clear button-positive" ng-click="OnSkip()" >跳过<i class="ion-chevron-right padding" ></i></button>-->
+    </div>
+    <ion-content class="has-header" padding="false">
+        <form name="myForm" >
+            <!-- 审核未通过 end-->
+            <!-- -1:待上传证件 0审核中 1 已通过 2 未审核通过-->
+            <!--<div ng-if="model.approveFlag">-->
+                <label class="item item-input">
+                    <span class="input-label">驾驶证号</span>
+                    <input placeholder="请输入驾驶证号" ng-model="model.user.driversLicense" type="text">
+                </label>
+
+                <label class="item text-center" ng-click="upload('peoplePhoto',model.user.idImg)">
+                    <div class="padding" id="peoplePhotoUpload">
+                        <!--<img src="img/peoplePhotoUpload.png" style="height: 50%;width: 100%;" />-->
+                        <img ng-src="{{model.user.idImg}}" style="height: 50%;width: 100%;" />
+                    </div>
+
+                    <p ng-if="!model.approveFlag">手持身份证正面照片</p>
+                    <p ng-if="model.approveFlag">手持身份证正面照片（点击图片上传）</p>
+                </label>
+
+                <label class="item text-center" ng-click="upload('driverPhoto',model.user.driversImg)">
+                    <div class="padding" id="driverPhotoUpload">
+                        <!--<img src="img/driverPhotoUpload.png" style="height: 50%;width: 100%;" />-->
+                        <img ng-src="{{model.user.driversImg}}" style="height: 50%;width: 100%;" />
+                    </div>
+
+                    <p ng-if="!model.approveFlag">驾驶证正副本照片</p>
+                    <p ng-if="model.approveFlag">驾驶证正副本照片（点击图片上传）</p>
+                </label>
+                <div class="item" style="border-bottom-width: 0px;">
+                    <div class="spacer" style="height: 20px;" ></div>
+                    <div ng-if="model.approveFlag!=true">
+                        <button class="button button-positive button-block" ng-click="go_url('tabs.usercenterMine')">返 回</button>
+                    </div>
+                    <div ng-if="model.approveFlag==true">
+                        <button class="button button-positive button-block" ng-click="OnSavedriversLicense()">完 成</button>
+                    </div>
+                    <div class="spacer" style="height: 20px;" ></div>
+                </div>
+                <!-- 审核未通过 end-->
+            <!--</div>-->
+            <!-- -1:待上传证件 0审核中 1 已通过 2 未审核通过-->
+            <!--<div ng-if="!approveFlag">-->
+                <!--&lt;!&ndash; 审核通过 begin&ndash;&gt;-->
+                <!--<label class="item item-input">-->
+                    <!--<span class="input-label">驾驶证号</span>-->
+                    <!--<label>{{user.driversLicense}}</label>-->
+                <!--</label>-->
+
+                <!--<label class="item text-center">-->
+                    <!--<div class="padding"  >-->
+                        <!--<img  ng-model="peoplePhotoUpload_img" ng-src="{{user.idImg}}" style="height: 50%;width: 100%;" />-->
+                    <!--</div>-->
+                    <!--<p>手持身份证正面照片</p>-->
+                <!--</label>-->
+
+                <!--<label class="item text-center">-->
+                    <!--<div class="padding" >-->
+                        <!--<img  ng-model="driverPhotoUpload_img"  ng-src="{{user.driversImg}}" style="height: 50%;width: 100%;" />-->
+                    <!--</div>-->
+                    <!--<p>-->
+                        <!--驾驶证正副本照片-->
+                    <!--</p>-->
+                <!--</label>-->
+                <!--<div class="item" style="border-bottom-width: 0px;">-->
+                    <!--<div class="spacer" style="height: 20px;" ></div>-->
+                    <!--<button class="button button-positive button-block" ng-click="go_url('tabs.usercenterMine')">返 回</button>-->
+                    <!--<div class="spacer" style="height: 20px;" ></div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; 审核通过 end&ndash;&gt;-->
+            <!--</div>-->
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,23 @@
+<div class="modal">
+  <ion-content has-header="true">
+    <div class="padding" style="margin-top:30px;">
+      <div pickadate ng-model="myDate" min='min' max='max'></div>
+    </div>
+    <!--<div class="button-bar" style="padding: 10px">-->
+      <!--<input placeholder="先选日期,再选时间"-->
+             <!--style="-->
+                <!--font-size: x-large;-->
+                <!--/*border-color: #000000;*/-->
+                <!--border: 0px;-->
+                <!--background: transparent;-->
+                <!--color: black;"-->
+             <!--class="button button-outline button-positive" ng-model="myDate" disabled="disabled"/>-->
+    <!--</div>-->
+    <div class="button-bar" style="padding: 10px">
+      <a class="button" ng-click="closedateModal(myDate,'9')" ng-show="isNotMin(myDate,'9')">上午09时</a>
+      <a class="button" ng-click="closedateModal(myDate,'18')" ng-show="isNotMax(myDate,'18')">下午18时</a>
+    </div>
+
+  </ion-content>
+</div>
+

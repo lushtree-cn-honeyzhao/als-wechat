@@ -1,0 +1,72 @@
+<ion-view title="我的代金券">
+    <style>
+        .nullItem{
+            display: none;
+            align:center;
+        }
+    </style>
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive" ng-href="#/tab/usercenter/mine">
+            <i class="icon-left ion-chevron-left padding" ></i>我的
+        </a>
+    </div>
+    <ion-content class="has-header" padding="false" >
+
+        <div class="button-bar " >
+            <button class="button button-positive  button-block {{btn.ClickCss1}} " ng-click="useful()">
+                待使用
+            </button>
+            <button class="button button-positive button-block  {{btn.ClickCss2}} " ng-click="used()">
+                已使用
+            </button>
+            <button class="button button-positive button-block  {{btn.ClickCss3}}  " ng-click="pastDue()">
+                已过期
+            </button>
+        </div>
+
+        <div collection-repeat="cou in coupons">
+            <div class="card">
+
+                <div class="item item-divider item-text-wrap">
+                    <div>
+                        <div class="item-note ">
+                           {{cou.couponName}}
+                        </div>
+
+                        {{cou.couponType}}
+                    </div>
+                </div>
+                <!--<div class="item item-text-wrap text-center">-->
+                    <!--<span class="positive" style="font-size: 24px;">-->
+                        <!--￥{{cou.couponPar}}-->
+                    <!--</span>-->
+                <!--</div>-->
+                <div class="item  item-text-wrap ">
+                    <span class="item-note">
+                        有效期至：{{cou.endDate}}
+                    </span>
+                    <h2 class="positive">
+                        ￥{{cou.couponPar}}
+                    </h2>
+                </div>
+            </div>
+            <div class="spacer" style="height:1px"></div>
+        </div>
+        <div class="spacer" style="height:15px"></div>
+
+        <div align="center" ng-show="coupons.length == 0">
+        <!--<div align="center" class="{{nullCss.css1}}">-->
+            <img ng-src="img/YHQ-03.png" style="margin-bottom: 30px;margin-top: 30px;width: 100px;"><br>
+            <!--<span style="color: grey">您还没有待使用的代金券哦</span>-->
+            <span style="color: grey">没有代金券</span>
+        </div>
+        <!--<div align="center" class="{{nullCss.css2}}">-->
+            <!--<img ng-src="img/YHQ-03.png" style="margin-bottom: 30px;margin-top: 30px;width: 100px;"><br>-->
+            <!--<span style="color: grey">您没有已使用的代金券</span>-->
+        <!--</div>-->
+        <!--<div align="center" class="{{nullCss.css3}}">-->
+            <!--<img ng-src="img/YHQ-03.png" style="margin-bottom: 30px;margin-top: 30px;width: 100px;"><br>-->
+            <!--<span style="color: grey">您没有已过期代金券</span>-->
+        <!--</div>-->
+    </ion-content>
+</ion-view>

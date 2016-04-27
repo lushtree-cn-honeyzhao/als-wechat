@@ -1,0 +1,142 @@
+<ion-view title="{{carConditionModel.type | rentType}}选车">
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive" ng-href="#/tab/home">
+            <i class="icon-left ion-chevron-left padding" ></i>首页
+        </a>
+        <div class="h1 title">{{carConditionModel.type | rentType}}选车</div>
+        <button class="button button-clear button-positive" ng-click="doRefresh()">
+            <i class="icon-right ion-android-refresh padding" ></i>
+        </button>
+    </div>
+    <ion-content class="has-header stable2-bg" padding="false" >
+        <!--<ion-refresher on-refresh="doRefresh()"-->
+                       <!--pulling-text="下拉刷新"-->
+                       <!--refreshing-text="刷新车辆中...">-->
+        <!--</ion-refresher>-->
+
+        <!--<ion-list>-->
+        <style>
+            .distance {
+                margin-top: 15px;
+                width: 130px;
+                background-color: rgb(93, 172, 246);
+                color: white;
+                padding: 8px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+            }
+            .timeSelect:after {
+                position: absolute;
+                top: 50%;
+                right: 16px;
+                margin-top: -3px;
+                width: 0;
+                height: 0;
+                border-top: 5px solid;
+                border-right: 5px solid rgba(0, 0, 0, 0);
+                border-left: 5px solid rgba(0, 0, 0, 0);
+                color: #999;
+                content: "";
+                pointer-events: none;
+            }
+        </style>
+
+        <!--<div class="spacer stable-bg" style="height:10px;"></div>-->
+        <!--<div class="item item-divider item-text-wrap">-->
+            <!--<div>-->
+                    <!--<span class="item-note positive">-->
+                        <!--<strong class="positive">{{carConditionModel.type | rentType}}</strong>-->
+                    <!--</span>-->
+                <!--<p>用车方式</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="item item-text-wrap">-->
+
+            <!--<div>-->
+                    <!--<span class="item-note">-->
+                        <!--{{carConditionModel.time.from | date:'yyyy-MM-dd HH:mm'}}-->
+                    <!--</span>-->
+                <!--<p class="padding-left">取车时间</p>-->
+            <!--</div>-->
+            <!--<div>-->
+                    <!--<span class="item-note">-->
+                        <!--{{carConditionModel.time.to | date:'yyyy-MM-dd HH:mm'}}-->
+                    <!--</span>-->
+                <!--<p class="padding-left">还车时间</p>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="spacer" style="height: 10px;">-->
+        <!--</div>-->
+
+        <label class="item item-input item-select ">
+            <select ng-model="carConditionModel.selectPoint"
+                    ng-options="point.name for point in carConditionModel.points track by point.id">
+            </select>
+            <span class="input-label">网点</span>
+        </label>
+
+        <div class="item item-text-wrap" >
+            <p class="left-padding">{{carConditionModel.selectPoint.address}}</p>
+        </div>
+
+        <div class="item" style="padding: 0px" ng-show="carConditionModel.type=='rentMore'">
+            <label class="item " style="float: left;width: 50%;border: 0" ng-click="selectFromTime(carConditionModel.time.from)">
+                <span class="timeSelect" >{{carConditionModel.time.from | date:'yyyy-MM-dd HH:mm'}}</span>
+            </label>
+            <label class="item " style="float: right;width: 50%;" ng-click="selectToTime(carConditionModel.time.to)">
+                <span class="timeSelect">{{carConditionModel.time.to | date:'yyyy-MM-dd HH:mm'}}</span>
+            </label>
+        </div>
+
+        <label class="item item-input item-select">
+            <span class="input-label">品牌</span>
+            <select ng-model="carListModel.selectBrand" ng-options="car.brand for car in carListModel.brands">
+            </select>
+        </label>
+
+        <div ng-repeat="car in carListModel.cars | brandFilter:carListModel.selectBrand ">
+            <div class="spacer" style="height:17px;"></div>
+
+            <!--<div class="item item-divider" ng-click="selectCar(car)">-->
+                <!--<div>-->
+                    <!--<span class="item-note positive" >-->
+                        <!--<span class="padding">{{car.dayPrice}}元/天</span><i class="icon ion-chevron-right "></i>-->
+                    <!--</span>-->
+                    <!--{{car.vehicleLicense}}-->
+                <!--</div>-->
+
+            <!--</div>-->
+            <div class="item item-thumbnail-left-l">
+                <img ng-src="{{car.vehicleImg}}">
+
+                <div ng-click="selectCar(car)">
+
+                    <div>
+                        <span class="item-note assertive" >
+                            {{car.dayPrice}}{{carConditionModel.type | priceUnitType}}
+                        </span>
+                        <p><strong>{{car.vehicleLicense}}</strong></p>
+                    </div>
+                    <div>
+                        <span class="item-note" >
+                            {{car.color}}
+                        </span>
+                        <!--<p>车型</p>-->
+                        <p>颜色</p>
+                    </div>
+                    <div>
+                        <span class="item-note" >
+                            {{car.kms}}km
+                        </span>
+                        <p>当前续航</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="spacer" style="height:45px;"></div>
+    </ion-content>
+</ion-view>

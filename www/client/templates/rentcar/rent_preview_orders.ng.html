@@ -1,0 +1,118 @@
+<ion-view title="订单确认">
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive" ng-href="#/rentCar/newOrder/{{selectCarParams.type}}/{{selectCarParams.parentRnd}}">
+            <i class="icon-left ion-chevron-left padding" ></i>{{selectCarParams.type | rentType}}选车
+        </a>
+        <div class="h1 title">订单确认</div>
+    </div>
+    <ion-content class="has-header" padding="false" >
+        <div class="list">
+            <div class="item item-divider">
+                <div>
+                    <span class="item-note positive">
+                        <strong class="positive">{{selectCarParams.type | rentType}}</strong>
+                    </span>
+                    <p>用车方式</p>
+                </div>
+            </div>
+            <div class="item item-text-wrap">
+
+                <div>
+                    <span class="item-note">
+                        {{selectCarParams.time.from}}
+                    </span>
+                    <p class="padding-left">取车时间</p>
+                </div>
+                <div>
+                    <span class="item-note">
+                        {{selectCarParams.time.to}}
+                    </span>
+                    <p class="padding-left">还车时间</p>
+                </div>
+            </div>
+
+            <div class="item item-divider item-text-wrap">
+                <div>
+                    <span class="item-note ">
+                        <span>{{selectCarParams.car.vehicleVersionName}} / <strong class="positive">{{selectCarParams.car.vehicleLicense}}</strong></span>
+                    </span>
+                    <p class="padding-left">预定车辆</p>
+                </div>
+            </div>
+            <div class="item item-text-wrap">
+                <div>
+                    <span class="item-note">
+                        {{selectCarParams.selectPoint.name}}
+                    </span>
+                    <p class="padding-left">取车网点</p>
+                </div>
+                <p class="padding-left">
+                    {{selectCarParams.selectPoint.address}}
+                </p>
+            </div>
+
+            <div class="spacer" style="height: 10px;">
+            </div>
+
+            <li class="item item-toggle" ng-if="canUsePackage">
+                使用包月包
+                <label class="toggle toggle-positive">
+                    <input type="checkbox"
+                           ng-change="defind()"
+                           ng-model="selectedPayType.isPackage">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+            <!--<ion-toggle toggle-class="toggle-positive" ng-model="selectedPayType.isPackage" ng-checked="true" ng-if="canUsePackage" ng-disabled="true">-->
+                <!--使用包月包-->
+            <!--</ion-toggle>-->
+
+            <ion-item class="item-select" ng-if="coupons.length > 0 && !selectedPayType.isPackage">
+
+                <label class="select">
+                    <select ng-model="selectedCoupon.id">
+                        <option value="">不使用</option>
+                        <option ng-repeat="coup in coupons" value={{coup.id}}>{{coup.couponPar}}{{coup.parType}}　有效期{{coup.endDate}}</option>
+                    </select>
+                </label>
+                <span class="assertive">
+                    代金券 {{coupons.length}}张
+                </span>
+
+            </ion-item>
+
+            <div class="item">
+
+                <div ng-repeat="item in orderResult.items">
+                    <span class="item-note assertive" style="font-size: 16px;">
+                        {{item.itemAmount}}
+                    </span>
+                    <p class="padding-left">{{item.itemName}}</p>
+                </div>
+
+                <div style="border-top:1px dashed #cccccc;height: 1px;overflow:hidden;margin-top: 15px;margin-bottom: 12px;"></div>
+
+                <span class="item-note">
+                    <p>实付款：
+                        <span class="padding-right assertive " style="font-size: 24px;">
+                        {{orderResult.summary.actualTotal}}
+                        </span>
+                    </p>
+                </span>
+            </div>
+            <div class="spacer stable-bg" style="height: 10px;">
+            </div>
+
+            <my-pay fee='myPay.fee' balance='myPay.balance' callback="myPay.submit(even)" ></my-pay>
+
+            <!--<div ng-controller="RentCarPreviewPayController">-->
+                <!--<ng-include src="'client/templates/rentcar/rent_preview_pay.ng.html'"></ng-include>-->
+            <!--</div>-->
+
+        </div>
+
+    </ion-content>
+</ion-view>

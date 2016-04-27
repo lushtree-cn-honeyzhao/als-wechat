@@ -1,0 +1,97 @@
+<style>
+    /*.button.button-dcgj {*/
+        /*border-color: #eb5218;*/
+        /*background-color: #eb5218;*/
+        /*color: #fff;*/
+    /*}*/
+
+    /*.button.button-dcgj:hover {*/
+        /*color: #fff;*/
+        /*text-decoration: none;*/
+    /*}*/
+
+    /*.button.button-dcgj.active, .button.button-dcgj.activated {*/
+        /*border-color: #eb5218;*/
+        /*background-color: #eB6218;*/
+        /*box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);*/
+    /*}*/
+
+    /*.button.button-dcgj.button-clear {*/
+        /*border-color: transparent;*/
+        /*background: none;*/
+        /*box-shadow: none;*/
+        /*color: #eb5218;*/
+    /*}*/
+    /*#x{*/
+        /*background-image: url("http://localhost:8000/img/dcgj/success.jpg");*/
+    /*}*/
+</style><ion-view title="{{_APP_NAME}}/0元租车">
+    <!--<ion-content padding="false" class="no-header"  data-tap-disabled="true">-->
+        <img src="img/dcgj/noUrlImg.jpg"  style="width: 100%;height:100%;" ng-click="go_url('coupons')"/>
+
+        <!--<img src="img/dcgj/success.jpg" style="width: 100%;height:70%;"/>-->
+        <!--<div class="item item-text-wrap"-->
+             <!--style="text-align:center;  border-bottom-width: 0px;border-top-width: 0px;background-color: #ffffff;padding:0px; background-image: url('img/rentcar/dcgj_reg_bg.png');background-repeat:no-repeat;background-position:bottom;color:#fff;">-->
+            <!--&lt;!&ndash;<img src="img/rentcar/dcgj_reg_bg.png" style="width: 100%;height:176px;">&ndash;&gt;-->
+            <!--<div style="padding-bottom: 15px;padding-top: 35px; font-size: 24px;font-family: 方正正粗黑简体, 宋体,sans-serif;">-->
+                <!--<strong>阿拉善智能监控</strong>-->
+            <!--</div>-->
+            <!--<div style="padding-bottom: 15px;padding-top: 15px; font-size: 40px;">-->
+                <!--<strong>免费租车一天</strong>-->
+            <!--</div>-->
+            <!--<div style="padding-bottom: 40px;padding-top: 15px; font-size: 16px;">-->
+                <!--<strong>新用户获得50元租车代金券</strong>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="spacer" style="height: 15px;"></div>-->
+        <!--<div class="item"-->
+             <!--style="text-align:center;border-bottom-width: 0px;border-top-width: 0px; padding-left: 30px;padding-right: 30px;padding-bottom: 5px;padding-top: 0px;">-->
+            <!--<img src="img/dcgj/coupon.png" style="width: 170px;height:100px;"/>-->
+        <!--</div>-->
+        <!--<div class="item"-->
+             <!--style="text-align: center;font-size: 10px;height: 25px;padding: 0px;padding-top: 5px;border-top-width: 0px;">-->
+            <!--<p style="line-height: 20px">注阿拉善智能监控微信，赶快使用，不要过期哦</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="item" style="border-bottom-width: 0px;border-top-width: 0px;padding-left: 80px;padding-right: 80px;padding-bottom: 0px;padding-top: 5px;text-align: center;">&ndash;&gt;-->
+        <!--&lt;!&ndash;<img src="img/dcgj/url_pic.jpg"  style="width: 100px;height:100px;"/><br>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span style="font-size: 10px">长按识别图中二维码</span>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<div class="item"-->
+             <!--style="border-bottom-width: 0px;border-top-width: 0px;padding-bottom: 0px;padding-top: 5px;padding-left: 10%;padding-right: 10%;text-align: center">-->
+            <!--<div style="float:left;text-align: center;padding-top: 15px;width: 45%">-->
+                <!--<dl>-->
+                    <!--<dt><img src="img/dcgj/logo.png" style="width: 100px;height:100px;"></dt>-->
+                    <!--<dd><span style="font-size: 15px">微信号:diancheguanjia</span></dd>-->
+                <!--</dl>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div data-tap-disabled="true"><img src="img/dcgj/url_pic.jpg" style="width: 200px;height:200px;" /></div>&ndash;&gt;-->
+            <!--<div style="float:right;text-align: center;width: 45%">-->
+                <!--<dl>-->
+                    <!--<dt style="height: 130px"><img src="img/dcgj/url_pic.jpg" style="width: 130px;height:130px;"/></dt>-->
+                    <!--<dd style="height: 10px;font-size: 10px">长按识别图中二维码</dd>-->
+                <!--</dl>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <!--<div class="item item-text-wrap"-->
+             <!--style="text-align:center;  border-bottom-width: 0px;border-top-width: 0px;background-color: #ffffff;padding-bottom: 0px;">-->
+            <!--<img src="img/rentcar/dcgj_reg_car.png" style="width: 150px;height:126px;">-->
+        <!--</div>-->
+        <!--<div class="item item-text-wrap " style="  border-bottom-width: 0px;background-color: #eb5218; color:#fff">-->
+            <!--<div style="padding-bottom: 15px;padding-top: 10px; font-size: 16px;font-family: 方正正粗黑简体, 宋体,sans-serif;text-align: center">-->
+                <!--<strong>规则说明</strong>-->
+            <!--</div>-->
+            <!--<div style="padding-left: 25px;padding-right: 25px; padding-bottom: 30px;font-size: 12px;">-->
+                <!--1.邀请好友，您得20元租车代金券；<br>-->
+                <!--2.好友可通过注册方式获得50元代金券：在当前页面中输入手机号、验证码和密码，关注公众号：阿拉善智能监控，点击“我的”进行登录，在“我的/代金券”页看到他/她的代金券。好友必须是新用户且未使用过阿拉善智能监控服务；<br>-->
+                <!--3.好友只要手机号注册成功后，您即获得20元租车代金券奖励；<br>-->
+                <!--4.您总计可获得不超过价值200元的邀请奖励；<br>-->
+                <!--5.优惠券仅支持在一号专车客户端用支付宝(或绑定信用卡)付车费时使用，企业账户支付不可使用优惠券；<br>-->
+                <!--6.每笔订单只能使用一张代金券，每张代金券仅限使用一次，不叠加不拆分不找零；<br>-->
+                <!--7. 代金券使用有效期为：代金券的过期日期内；<br>-->
+                <!--8.使用非正常途径或手段获得的代金券奖励无效，阿拉善智能监控保留最终解释权。<br>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</ion-content>-->
+</ion-view>

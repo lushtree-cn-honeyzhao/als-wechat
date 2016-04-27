@@ -1,0 +1,180 @@
+/* 灰色背景 */
+.stable2-bg{
+    background-color: #f5f5f5;
+}
+/* 首页 */
+.item-thumbnail-left-a, .item-thumbnail-left-a .item-content {
+    padding-top: 15px;
+    padding-left: 75px;
+    min-height: 50px; }
+.item-thumbnail-left-a > img:first-child{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%; }
+
+/* 首页 */
+.item-thumbnail-left-12 {
+    padding-top: 15px;
+    padding-left: 45px;
+    min-height: 20px; }
+.item-thumbnail-left-12 > img:first-child{
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    width: 100%;
+    height: 100%; }
+
+/*车型*/
+.item-thumbnail-left-l, .item-thumbnail-left-l .item-content {
+    padding-top: 15px;
+    padding-left: 125px;
+    min-height: 50px; }
+.item-thumbnail-left-l > img:first-child{
+    position: absolute;
+    top: 15px;
+    left: 13px;
+    max-width: 100px;
+    max-height: 60px;
+    width: 100%;
+    height: 100%; }
+
+
+.item-thumbnail-right-12, {
+    padding-top: 8px;
+    padding-right: 106px;
+    min-height: 20px;
+}
+.item-thumbnail-right-12 .item-image-right-12 {
+    position: absolute;
+    top: 6px;
+    right: 15px;
+    max-width: 100px;
+    max-height: 25px;
+    width: 100%;
+    height: 100%; }
+
+
+
+/* 个人中心 */
+.item-thumbnail-left-m, .item-thumbnail-left-m .item-content {
+    padding-top: 14px;
+    padding-left: 52px;
+    min-height: 50px; }
+.item-thumbnail-left-m > img:first-child{
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    max-width: 25px;
+    max-height: 25px;
+    width: 100%;
+    height: 100%; }
+
+
+.item-thumbnail-left-90, .item-thumbnail-left-m .item-content {
+    padding-top: 14px;
+    padding-left: 85px;
+    min-height: 50px; }
+.item-thumbnail-left-90 > img:first-child{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    max-width: 25px;
+    max-height: 25px;
+    width: 100%;
+    height: 100%; }
+
+
+.item-avatar-90, {
+    padding-left: 72px;
+    min-height: 72px; }
+.item-avatar-90 > img:first-child  {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    max-width: 55px;
+    max-height: 55px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
+
+
+
+.platform-android .action-sheet-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.platform-android .action-sheet {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: auto;
+    z-index: 11;
+    overflow: hidden;
+}
+.platform-android .action-sheet .action-sheet-title,
+.platform-android .action-sheet .button {
+    display: block;
+    padding: 1px;
+    width: 100%;
+    border-radius: 0;
+    border-color: #d1d3d6;
+    background-color: transparent;
+    color: #007aff;
+    font-size: 21px;
+    text-align: center;
+}
+.platform-android .action-sheet .action-sheet-title {
+    padding: 16px;
+    color: #8f8f8f;
+    text-align: center;
+    font-size: 13px;
+}
+.platform-android .action-sheet .button.active,
+.platform-android .action-sheet .button.activated {
+    background: #e8e8e8;
+}
+.platform-android .action-sheet-group {
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.platform-android .action-sheet-group .button {
+    border-width: 1px 0 0;
+}
+.platform-android .action-sheet .button {
+    display: block;
+    padding: 1px;
+    width: 100%;
+    border-radius: 0;
+    border-color: #d1d3d6;
+    background-color: transparent;
+    color: #007aff;
+    font-size: 21px;
+}
+.platform-android .action-sheet-cancel {
+    font-weight: 500;
+    display: block;
+}
+.platform-android .action-sheet-has-icons .button {}
+
+  .tabs-dcgj > .tabs, .tabs.tabs-dcgj {
+    border-color: #ddd;
+    background-color: #f5f7f6;
+    background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
+    color: #0c63ee; }
+
+.tabs-color-dcgj .tab-item {
+  color: #989898;
+  opacity: 1; }
+  .tabs-color-dcgj .tab-item .badge {
+    opacity: 0.4; }
+  .tabs-color-dcgj .tab-item.tab-item-active, .tabs-color-dcgj .tab-item.active, .tabs-color-dcgj .tab-item.activated {
+    color: #0c63ee;
+    border: 0 solid #fff; }
+    .tabs-color-dcgj .tab-item.tab-item-active .badge, .tabs-color-dcgj .tab-item.active .badge, .tabs-color-dcgj .tab-item.activated .badge {
+      opacity: 1; }

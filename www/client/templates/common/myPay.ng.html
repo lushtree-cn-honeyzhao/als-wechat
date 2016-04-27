@@ -1,0 +1,43 @@
+<div class="item" style="padding: 0px;border: 0px">
+    <div class="list">
+        <div class="item item-toggle" ng-show="payShow.rest.show">
+            余额支付 <span style="color: #aaa;font-size: 14px;">{{payShow.rest.money}}元</span>
+            <label class="toggle toggle-assertive">
+                <input type="checkbox" ng-init="payShow.rest.check=true"
+                       ng-change="watch({name:'rest',selected:payShow.rest.check})"
+                       ng-model="payShow.rest.check">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+        </div>
+
+        <div class="item item-checkbox" ng-show="payShow.wx.show">
+            <label class="checkbox">
+                <input type="checkbox" ng-model="payShow.wx.check"
+                       ng-change="watch({name:'wx',selected:payShow.wx.check})">
+            </label>
+            微信支付<span class="item-note">金额:{{payShow.wx.money}}元</span>
+        </div>
+
+        <!--<div class="item item-checkbox" ng-show="payShow.ali.show">-->
+            <!--<label class="checkbox">-->
+                <!--<input type="checkbox" ng-model="payShow.ali.check"-->
+                       <!--ng-change="watch({name:'ali',selected:payShow.ali.check})">-->
+            <!--</label>-->
+            <!--支付宝支付<span class="item-note">金额:{{payShow.ali.money}}元</span>-->
+        <!--</div>-->
+
+
+        <div class="item item-text-wrap" style="border-bottom-width: 0px;">
+            <button class="button button-positive button-block " ng-click="submit()">提交订单</button>
+            <p class="padding">
+                <i class="icon ion-alert-circled positive "></i>
+                请在约定时间内还车，如果超时将产生一定的费用。</span>
+            </p>
+        </div>
+
+    </div>
+
+
+</div>

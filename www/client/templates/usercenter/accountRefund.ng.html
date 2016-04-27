@@ -1,0 +1,42 @@
+<ion-view view-title="退款">
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive"  ng-click="go_url('usercenterAccount')">
+            <i class="icon-left ion-chevron-left padding" ></i>返回
+        </a>
+    </div>
+    <ion-content class="has-header">
+        <div class="list">
+
+            <div class="item light-bg text-center" >
+                <div class="spacer" style="height: 15px;"></div>
+                <span style="font-size: 16px;color: #85858585;">可退充值余额</span>
+                <div class="spacer" style="height: 25px;"></div>
+                <span class="positive" style="font-size: 50px;">{{accountInfo.availableBalance}}</span><span class="positive" style="font-size: 16px;"> 元</span>
+                <div class="spacer" style="height: 25px;"></div>
+                <a class="button button-positive rounded {{buttonFlag3}}" ng-click="submitRefundApply()"
+                   style="border-color: #fff;
+                            padding: 8px 30px 7px;
+                            min-width: 28px;
+                            min-height: 45px;
+                            font-size: 16px;
+                            line-height: 26px;
+                            ">
+                    {{buttonText}}
+                </a>
+
+                <div class="spacer" style="height: 10px;"></div>
+            </div>
+            <div class="item light-bg item-text-wrap" style="font-size: 16px;color:#85858585;">
+                <li style="padding: 8px;">
+                    申请退款，即表明要求退还账户全部可退余额
+                </li>
+                <li style="padding: 8px;">
+                    提出退款申请后，退款金额将在15个工作日内退款到您原充值账户。
+                </li>
+                <li style="padding: 8px;">
+                    长假订单（如春节订单等）后，会员提出退款申请的，“阿拉善智能监控”在35天内向会员退回账户余额
+                </li>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+    <!--禁止微信缓存-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!--禁止微信缓存-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/normalize-css/normalize.css" rel="stylesheet">
+    <link href="css/datePicker/angular-pickadate.css" rel="stylesheet">
+    <link href="lib/angular-datepicker/dist/index.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <title>阿拉善智能监控</title>
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('myApp', ['ionic']);
+        app.factory('pay', ['$rootScope','$http','$ionicPopup', function ($rootScope,$http,$ionicPopup) {
+            function params() {
+                var url = location.search; //获取url中"?"符后的字串
+                var theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    var strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+                    }
+                }
+                return theRequest;
+            }
+
+            function beginPay(money, body){
+                $http({
+                    method: 'GET',
+                    url:    'http://ev-easy.com/ev-manager/wechat/test/ev-manager/wechatAuth/loginWithCode',
+                    params: params()
+                }).success(function (data, status, headers, config) {
+                    console.log("loginWithCode:使用腾讯回调的code,ajax登陆阿拉善智能监控")
+                    console.log("返回:"+JSON.stringify(data.openId))
+                    pay(data.openId,money, body)
+                })
+            }
+
+
+
+            function pay1(data, ok, cancel, fail) {
+                /**
+                 * data.data中包含js代码的字符串数据
+                 * 执行微信支付控件，发起微信控件的支付请求
+                 * 请求发出后会回调固定的函数 h5pay()
+                 */
+                eval('(window.h5pay=' + data.data + ')')
+                /**
+                 *  微信支付控件的回调
+                 *  json为控件返回的信息，包含用户是否支付成功，或者用户中途退出等
+                 *  parmas为返回支付需要的数据,调试使用
+                 */
+                if (angular.isFunction(window.h5pay)) {
+                    window.h5pay(function (json, parmas) {
+//                        if (json.status == 0) {//浏览器不支持
+//                            $ionicPopup.alert({
+//                                title: '浏览器不支持',
+//                                template: '请在微信中支付',
+//                                okText: '确定'
+//                            }).then(function () {
+//                                if (angular.isFunction(fail)) fail()
+//                            });
+//                            return
+//                        }
+                        /**
+                         * 调用支付控件成功，得到控件的返回信息,支付成功与否都放在err_msg中,
+                         * 包括3中状态
+                         *     get_brand_wcpay_request:ok        支付成功
+                         *     get_brand_wcpay_request:cancel    支付过程中用户取消
+                         *     get_brand_wcpay_request:fail        支付失败
+                         */
+                        if (json.response['err_msg'] == 'get_brand_wcpay_request:ok') {//支付成功,
+                            if (angular.isFunction(ok)) ok()
+                        } else if (json.response['err_msg'] == 'get_brand_wcpay_request:cancel') {//用户支付中途退出
+                            if (angular.isFunction(cancel)) cancel()
+                        } else {
+                            if (angular.isFunction(fail)) fail()
+                        }
+                    })
+                } else {
+                    $ionicPopup.alert({
+                        title: '支付失败',
+                        template: '重新支付',
+                        okText: '确定'
+                    }).then(function () {
+                        if (angular.isFunction(fail)) fail()
+                    });
+                }
+
+            }
+
+            function pay(openId,money, body, detail, attach, ok, cancel, fail, params) {
+                var inputParams1 = {
+                    body: body,
+                    detail: detail || 'detail',
+                    attach: attach || 'attach',
+                    totalFee: money
+                }
+                console.log('h5Pay inputParams1:'+JSON.stringify(inputParams1))
+                var inputParams2 = angular.extend(inputParams1, params)
+                console.log('h5Pay inputParams2:'+JSON.stringify(inputParams2))
+                console.log('openId------>:'+openId)
+                $http({
+                    method: 'GET',
+                    url:    'http://ev-easy.com/ev-manager/wechat/test/ev-manager/wxpay/h5Pay?authcode=424f730ae8fb58dae33d08bd7017df8f',
+                    params: angular.extend({openId:openId},inputParams2)
+                }).success(function (data) {
+                    if (data.status == 200) {//请求后台支付成功了
+                        console.log('请求后台支付成功了,开始客户端支付')
+                        pay1(data, ok, cancel, fail)
+                    } else {//请求后台支付失败了
+                        $ionicPopup.alert({
+                            title: '请求后台支付失败',
+                            template:JSON.stringify(data.message),
+                            okText: '确定'
+                        }).then(function () {
+
+                        });
+                    }
+                }).finally(function () {
+                });
+            }
+
+            return {
+                pay:function(money, body){
+                    beginPay(money, body)
+                }
+            }
+
+        }])
+
+        app.controller('logListCtr', ['$scope', 'pay', function ($scope, pay) {
+            console.log('---------------------------------------')
+            pay.pay(1,"阿拉善智能监控支付")
+        }]);
+
+    </script>
+</head>
+
+<body ng-controller="logListCtr">
+    扫码后，跳到我们的页面,用户支付一分钱<br>
+    也可以让用户输入金额,点确认后付款<br>
+    临时改出的页面,只能在我的机器上运行，没有部署到服务器<br>
+</body>
+
+</html>
+
+
+

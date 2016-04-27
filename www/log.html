@@ -1,0 +1,118 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <title>remote-debug</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 10px Helvetica, Arial;
+        }
+
+        .list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list:nth-child(odd) {
+            background: #cacbd1;
+        }
+    </style>
+    <script src="http://cdn.bootcss.com/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/1.4.3/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('myApp', []);
+        app.factory('socket.io', ['$rootScope', function ($rootScope) {
+            var db = {}
+            var socket = io('http://ev-easy.com/');
+            return {
+                on: function (eventName, callback) {
+                    socket.on(eventName, function () {
+                        var args = arguments;
+                        if (!db[eventName]) {
+                            db[eventName] = []
+                        }
+                        db[eventName].push(args)
+                        $rootScope.$apply(function () {
+                            callback.apply(socket, args);
+                        });
+                    });
+                }
+            }
+        }])
+
+        app.filter('logsFilter', function () {
+            return function (logs, filter) {
+                var result = []
+                angular.forEach(logs, function (v) {
+//                    if((v.msg+'').includes(filter)){
+                    if (JSON.stringify(v.msg).includes(filter)) {
+                        this.push(v)
+                    }
+                }, result)
+                return result
+            };
+        })
+
+        app.filter('senderFilter', function () {
+            return function (logs, filter) {
+                var result = []
+                if (filter) {
+                    angular.forEach(logs, function (v) {
+                        if (v.clientId == filter.clientId) {
+                            this.push(v)
+                        }
+                    }, result)
+                }
+                return result
+            };
+        })
+
+        app.controller('logListCtr', ['$scope', 'socket.io','$filter', function ($scope, socket,$filter) {
+            var vm = $scope.vm = {
+                messages: [],
+                senders: [],
+                filter: '',
+                selectedClient:{}
+            };
+            socket.on('message', function (msg) {
+                vm.messages.push(msg)
+            });
+            socket.on('sender list', function (msg) {
+//                angular.forEach(msg,function(v,k){
+//                    var timeClientId = $filter('date')(new Date(v.clientId), 'yyyy-MM-dd HH:mm:ss sss');
+//                    if(timeClientId){
+//                        v.clientId = timeClientId
+//                    }
+//                })
+                vm.senders = msg
+            });
+        }]);
+
+    </script>
+</head>
+<body ng-controller="logListCtr">
+<div style="position: fixed;top: 0px;left: 0px;">
+    <select class="form-control"
+            ng-model="vm.selectedClient"
+            ng-options="sender.clientId for sender in vm.senders ">
+        <option value="">clients({{vm.senders.length}})</option>
+    </select>
+    <input class="form-control" ng-model="vm.filter">
+</div>
+
+
+<br><br>
+
+<div>
+    <ul class="list" ng-repeat="message in vm.messages | senderFilter:vm.selectedClient | logsFilter:vm.filter ">
+        <li>{{message}}</li>
+    </ul>
+</div>
+</body>
+</html>

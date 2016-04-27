@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+
+    <!--禁止微信缓存-->
+    <!--<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />-->
+    <!--<meta http-equiv="Pragma" content="no-cache" />-->
+    <!--<meta http-equiv="Expires" content="0" />-->
+    <!--禁止微信缓存-->
+
+    <title>阿拉善智能监控</title>
+
+    <!-- build:css {version.css}-->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/normalize-css/normalize.css" rel="stylesheet">
+    <link href="client/css/datePick.css" rel="stylesheet">
+    <link href="client/css/main.css" rel="stylesheet">
+    <link href="client/css/sprite.css" rel="stylesheet">
+    <!-- endbuild -->
+
+    <!-- build:js {version.js} -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script src="client/js/datePicker/datePick.js"></script>
+
+    <script src="client/js/lib/app.js"></script>
+    <script src="client/js/lib/config.js"></script>
+    <script src="client/js/lib/router.js"></script>
+    <script src="client/js/lib/animations.js"></script>
+    <script src="client/js/lib/filters.js"></script>
+    <script src="client/js/lib/directives.js"></script>
+
+    <script src="client/js/controllers/app.js"></script>
+    <script src="client/js/controllers/signIn.js"></script>
+    <script src="client/js/controllers/user.js"></script>
+    <script src="client/js/controllers/tabsController.js"></script>
+    <script src="client/js/controllers/userMessages.js"></script>
+    <script src="client/js/controllers/servicePackages.js"></script>
+    <script src="client/js/controllers/orders.js"></script>
+    <script src="client/js/controllers/account.js"></script>
+    <script src="client/js/controllers/payJump.js"></script>
+    <script src="client/js/controllers/rentCarIndex.js"></script>
+    <script src="client/js/controllers/rentCarNewOrder.js"></script>
+    <script src="client/js/controllers/rentCarPreviewOrder.js"></script>
+    <script src="client/js/controllers/datePicker.js"></script>
+    <script src="client/js/controllers/register.js"></script>
+    <script src="client/js/controllers/registerUpload.js"></script>
+
+    <script src="client/js/services/ENV.js"></script>
+    <script src="client/js/services/log.js"></script>
+    <script src="client/js/services/loginWithCode.js"></script>
+    <script src="client/js/services/orderCommit.js"></script>
+    <script src="client/js/services/rentCarNewOrderService.js"></script>
+    <script src="client/js/services/rentService.js"></script>
+    <script src="client/js/services/storage.js"></script>
+    <script src="client/js/services/user.js"></script>
+    <script src="client/js/services/api.js"></script>
+    <script src="client/js/services/h5pay.js"></script>
+    <script src="client/js/services/wxJs.js"></script>
+    <script src="client/js/services/ez_state.js"></script>
+    <!-- endbuild -->
+
+    <script>angular.module("partials", [])</script>
+
+</head>
+<body>
+<!--<ion-nav-bar class="bar-positive">-->
+<!--<ion-nav-back-button></ion-nav-back-button>-->
+<!--</ion-nav-bar>-->
+<ion-nav-view></ion-nav-view>
+</body>
+</html>
+
+<script src='http://cdn.bootcss.com/socket.io/1.3.6/socket.io.min.js'></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+

@@ -1,0 +1,62 @@
+<ion-view  view-title="个人中心"  class="stable2-bg">
+    <ion-content class="no-header" padding="false">
+        <ion-list>
+
+            <div class="item item-thumbnail-left-90 item-avatar-90" style="line-height:25px;">
+                <img ng-src={{user.headImgUrl}}>
+                <div>
+                    <strong>{{user.phoneNum}}</strong>
+                    <p>
+                        邀请码：{{user.userFriendCode}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="button-bar" style="padding: 2px;">
+                <a class="button button-positive button-outline button-block " ng-click="go_url('orders')" style="border-radius: 0px;"> 订单</a>
+                <a class="button button-positive button-outline button-block " ng-click="go_url('usercenterAccount')"> 账户管理</a>
+                <a class="button button-positive button-outline button-block " ng-click="go_url('coupons')" style="border-radius: 0px;"> 代金券</a>
+            </div>
+
+            <div class="item item-thumbnail-left-m" ng-click="go_url('myPackageList')" >
+                <img src="img/usercenter/item_baoyuebao.png"  />
+                我的包月包
+                <span class="item-note ion-chevron-right"></span>
+            </div>
+            <div class="item item-thumbnail-left-m" ng-click="go_url('tabs.messagelist',{from:'fromMine'})" >
+                <img src="img/usercenter/item_messages.png"  />
+                我的消息
+                <span class="item-note ion-chevron-right"></span>
+            </div>
+            <!--<div class="item item-thumbnail-left-m" ng-click="go_url('signupUpload')" >-->
+            <div class="item item-thumbnail-left-m" ng-click="go_url('signupUpload',{uploadType:'fromMine'})" >
+                <img src="img/usercenter/item_userVerify.png"  />
+                身份验证
+                <span class="item-note ">
+                    {{user.approveStatusStr}}<i class="icon ion-chevron-right padding-left"></i>
+                </span>
+            </div>
+            <div class="item item-thumbnail-left-m" ng-click="go_url('updatePass')" >
+                <img src="img/usercenter/item_updatePassword.png"  />
+                修改密码
+                <span class="item-note ">
+                    <i class="icon ion-chevron-right padding-left"></i>
+                </span>
+            </div>
+            <div class="item item-thumbnail-left-m" ng-click="go_url('helpCenter')" >
+                <img src="img/usercenter/item_helpCenter.png"  />
+                帮助中心
+                <span class="item-note ">
+                    <i class="icon ion-chevron-right padding-left"></i>
+                </span>
+            </div>
+
+            <div class="spacer" style="height: 5px;"></div>
+
+            <label class="item stable2-bg" style="border-top-width: 0px; border-bottom-width: 0px;padding-top:0px;padding-bottom:0px;">
+                <button ng-click="onLogout()" class="button button-positive button-block ">退出登录</button>
+            </label>
+            <div class="spacer" style="height: 20px;"></div>
+        </ion-list>
+    </ion-content>
+</ion-view>

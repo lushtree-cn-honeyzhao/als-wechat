@@ -1,0 +1,89 @@
+<ion-view class="item-divider"  title="{{_APP_NAME}}/个人资料">
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive" ng-href="#/tab/usercenter/mine">
+            <i class="icon-left ion-chevron-left padding" ></i>个人资料
+        </a>
+    </div>
+    <ion-content class="has-header" padding="false">
+        <form enctype="multipart/form-data">
+            <ion-list>
+                <ion-item class="item-thumbnail-left item-avatar">
+                    <img ng-src={{user.headImgUrl}}>
+                    <h2 style="padding-top: 31px;">头像</h2>
+                </ion-item>
+            </ion-list>
+            <label style="" class="item item-input">
+                <span class="input-label">昵 称</span>
+                <input placeholder="请输入昵称" ng-model="user.userNickName" value="{{user.userNickName}}" type="text">
+            </label>
+            <label class="item item-select">
+                <span class="input-label">性别</span>
+                <select ng-model="user.sex" name="sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </label>
+            <label class="item item-input" ng-controller="DatepickerDefultController" >
+                <span class="input-label">出生年月</span>
+                <!--<input type="text" style="background-color: white;display: inline"-->
+                <!--placeholder="出生年月" name="datepicker" id="datepicker"-->
+                <!--ng-model="user.userBirthday" ng-click="opendateModal('user.userBirthday')"-->
+                <!--ng-app="datepickerapp" animation="slide-in-up" value="{{user.userBirthday}}"-->
+                <!--readonly>                -->
+                <input type="date" placeholder="出生年月" ng-model="user.userBirthday" >
+            </label>
+            <!--<label class="item item-select">-->
+            <!--<span class="input-label">城市</span>-->
+            <!--<select ng-model="user.cityId" name="cityId">-->
+            <!--<option value="北京市">北京市</option>-->
+            <!--&lt;!&ndash;<option value="sh002">上海市</option>&ndash;&gt;-->
+            <!--</select>-->
+            <!--</label>-->
+            <!--<label class="item item-select">-->
+            <!--<span class="input-label">地区</span>-->
+            <!--<select ng-model="user.areaId" name="areaId">-->
+            <!--<option value="东城区">东城区</option>-->
+            <!--<option value="西城区">西城区</option>-->
+            <!--<option value="朝阳区">朝阳区</option>-->
+            <!--<option value="丰台区">丰台区</option>-->
+            <!--<option value="石景山区">石景山区</option>-->
+            <!--<option value="海淀区">海淀区</option>-->
+            <!--<option value="门头沟区">门头沟区</option>-->
+            <!--<option value="房山区">房山区</option>-->
+            <!--<option value="通州区">通州区</option>-->
+            <!--<option value="顺义区">顺义区</option>-->
+            <!--<option value="昌平区">昌平区</option>-->
+            <!--<option value="大兴区">大兴区</option>-->
+            <!--<option value="怀柔区">怀柔区</option>-->
+            <!--<option value="平谷区">平谷区</option>-->
+            <!--<option value="密云县">密云县</option>-->
+            <!--<option value="延庆县">延庆县</option>-->
+            <!--</select>-->
+            <!--</label>-->
+            <label class="item item-input">
+                <span class="input-label" >详细地址</span>
+                <input placeholder="请输入地址" ng-model="user.homeAddress" type="text">
+            </label>
+
+            <div style="width: 300px; height: 25px;" class="spacer"></div>
+            <label style="" class="item item-input">
+                <span class="input-label">紧急联系人</span>
+                <input ng-model="user.emergencyContactUser" placeholder="输入紧急联系人" type="text">
+            </label>
+            <label style="" class="item item-input">
+                <!--<span class="input-label">联系人电话</span>-->
+                <span class="input-label">紧急联系人电话</span>
+                <input ng-model="user.emergencyContactTel" placeholder="输入紧急联系人电话" type="text">
+            </label>
+
+            <label class="item stable-bg" style="border-top-width: 0px; border-bottom-width: 0px;padding-top:0px;padding-bottom:0px;">
+                <div class="spacer" style="height: 30px;" ></div>
+                <button ng-click="updUserInfo()" class="button button-positive button-block ">提交</button>
+                <div class="spacer" style="height: 10px;" ></div>
+            </label>
+
+
+        </form>
+        <!-- TODO <p style="color: grey">完成此步骤赠送两百积分</p>-->
+    </ion-content>
+</ion-view>

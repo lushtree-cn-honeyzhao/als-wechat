@@ -1,0 +1,183 @@
+<ion-view title="包月包使用详情">
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive" ng-click="backList()">
+            <i class="icon-left ion-chevron-left padding"></i>返回
+        </a>
+        <!--<button class="button button-clear button-positive" ng-click="doRefresh()">-->
+        <!--<i class="icon-right ion-android-refresh padding" ></i>-->
+        <!--</button>-->
+    </div>
+    <ion-content padding="true" class="has-header">
+
+        <style>
+            .righttd {
+                text-align: right
+            }
+
+            .nullItem {
+                display: none;
+                align: center;
+            }
+
+            .bootItem {
+                height: 40px;
+                padding: 0px;
+                color: grey;
+                padding-right: 15px;
+                line-height: 40px;
+                padding-left: 15px;
+                /*border-color: #007aff;*/
+
+            }
+
+            .footRight {
+                float: right;
+            }
+
+            .footLeft {
+                float: left;
+            }
+
+            #nullIdItem {
+                display: none;
+            }
+        </style>
+
+        <div class="card">
+            <div class="item item-divider item-text-wrap">
+                <div>
+                    <div class="item-note positive">
+                        <span class="padding">{{checkPack.useState}}</span>
+                    </div>
+                    {{checkPack.packageName}}
+                </div>
+            </div>
+            <div class="item item-text-wrap ">
+                <div>
+                    <span class="item-note">￥{{checkPack.price}} </span>
+
+                    <p>价格</p>
+                </div>
+                <div>
+                    <span class="item-note">{{checkPack.buyTime}}</span>
+
+                    <p>购买日</p>
+                </div>
+                <div>
+                    <span class="item-note">{{checkPack.startDate}}</span>
+
+                    <p>启用日</p>
+                </div>
+                <div>
+                    <span class="item-note">{{checkPack.endDate}}</span>
+
+                    <p>有效期</p>
+                </div>
+            </div>
+            <div class="{{nullCssAll}}">
+                <div class="item item-divider item-text-wrap" ng-click=usePackage(checkPack.useState)
+                     id="{{nullIdCss.id1}}">
+
+                    <div>
+                        <div class="item-note positive">
+                            <span class="padding">开始使用</span><i class="icon ion-chevron-right "></i>
+                        </div>
+                        {{checkPack.timeDesc}}
+                    </div>
+                </div>
+
+                <div class="item item-divider item-text-wrap" ng-click=usePackage(checkPack.useState)
+                     id="{{nullIdCss.id2}}">
+
+                    <div>
+                        <div class="item-note positive">
+                            <span class="padding">去选车</span><i class="icon ion-chevron-right "></i>
+                        </div>
+                        {{checkPack.timeDesc}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="{{nullCss}}">
+            <!--<div class="list card " style="margin-top: 20px;margin-bottom: 10px">-->
+            <!--<div class="item item-divider item-text-wrap">-->
+            <!--包使用情况-->
+            <!--</div>-->
+            <!--<div class="item item-text-wrap ">-->
+            <!--<div>-->
+            <!--<span class="item-note">已用0天，还剩30天</span>-->
+
+            <!--<p>使用时间</p>-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--<span class="item-note">0 元</span>-->
+
+            <!--<p>总超时金额</p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div ng-if="useDetails.length > 0"
+                 style="height: 20px;line-height:20px;padding-left: 15px;margin-top: 10px">
+                用车记录
+            </div>
+            <div collection-repeat="detail in useDetails">
+                <div class="spacer" style="height:10px;"></div>
+
+                <div class="item item-divider" ng-click=showOrderDetails(detail.orderId)>
+                    <div>
+                    <span class="item-note positive">
+                            <div class="item-note positive">
+                                <!--<span class="padding">{{item.ordersState}}</span><i class="icon ion-chevron-right "></i>-->
+                                <span class="padding">{{detail.perRentState}}</span><i
+                                    class="icon ion-chevron-right "></i>
+                            </div>
+                    </span>
+                        {{detail.vehLicense}}
+                    </div>
+                </div>
+                <div class="item item-thumbnail-left-l">
+                    <!--<img ng-src="{{item.vehicleImg}}">-->
+                    <img ng-src={{detail.vehicleImg}}>
+
+                    <div>
+                        <!--<div>-->
+                        <!--&lt;!&ndash;<span class="item-note">{{detail.vehVerName.vehicleVersion}} </span>&ndash;&gt;-->
+                        <!--<span class="item-note">{{detail.color}} </span>-->
+
+                        <!--&lt;!&ndash;<p>车型</p>&ndash;&gt;-->
+                        <!--<p>颜色</p>-->
+                        <!--</div> -->
+                        <div>
+                            <span class="item-note">{{detail.perRentPrice}}</span>
+
+                            <p>订单金额</p>
+                        </div>
+                        <div>
+                            <!--<span class="item-note">{{detail.vehVerName.vehicleVersion}} </span>-->
+                            <span class="item-note">{{detail.createTime}} </span>
+
+                            <!--<p>车型</p>-->
+                            <p>下单时间</p>
+                        </div>
+
+
+                        <div>
+                            <!--<span class="item-note">{{detail.orderType}}</span>-->
+                            <span class="item-note">白天</span>
+
+                            <p>用车方式</p>
+                        </div>
+                        <div>
+                            <span class="item-note">{{detail.rentTime}}</span>
+
+                            <p>用车日期</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+

@@ -1,0 +1,338 @@
+<ion-view title="{{_APP_NAME}}/用户注册" style="background-color: #f5f5f5;">
+    <style>
+        /*.agreementClass h3{*/
+        /*font-size:18px;*/
+        /*}*/
+        /*.defaultShow{*/
+        /*display: none;*/
+        /*}*/
+    </style>
+    <div class="bar bar-header bar-light" style="background-color: #f5f5f5;">
+        <a class="button button-clear button-positive" ng-click="go_url('signup_dcgj')"
+           ng-if="registerType == 'fromShare'">
+            <i class="icon-left ion-chevron-left padding"></i>返回
+        </a>
+        <a class="button button-clear button-positive" ng-click="go_url('signup')" ng-if="registerType == 'fromLogin'">
+            <i class="icon-left ion-chevron-left padding"></i>返回
+        </a>
+    </div>
+    <ion-content padding="true" class="has-header">
+        <!--<p ng-bind-html="strAgreement" class="agreementClass"></p>-->
+        <!--<div class="{{nullCss}}">-->
+        <!--<h4 style="text-align: center;font-weight: bold">阿拉善智能监控使用协议和隐私政策</h4>-->
+
+        <!--<p class="NormalWeb"><span style="">　</span><strong><span style="; ">　第一章 总则</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　阿拉善智能监控是北京易行绿动信息技术有限公司旗下提供新能源汽车租赁的服务平台，阿拉善智能监控为阿拉善智能监控租车会员提供会员间的车辆租赁服务。使用阿拉善智能监控租车服务的用户是以完全遵守本协议和所在国法律、法规为条件的。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　</span><strong><span style="; ">第二章 会员资格</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　凡年龄在18周岁(含)以上、持有有效证件的客户，均可申请加入会员。</span></p>-->
+
+        <!--<p class="NormalWeb" style="text-indent:18pt"><strong><span style="; ">第三章 会员的权利及义务</span></strong></p>-->
+
+        <!--<p class="NormalWeb" style="text-indent:10pt"><span style="">　会员享有使用阿拉善智能监控产品和服务的权益，日租、夜租、包月租等。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员享有使用阿拉善智能监控车产品和服务的权益</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　当您会员注册成功后，阿拉善智能监控会给予每位用户一个账号和相应的密码，该账号和密码由用户自行保管。凭该账号和密码可对阿拉善智能监控官网所提供的产品进行租赁，参与活动等权限。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　如遇到忘记密码可通过“找回密码”进行找回。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员租车时需遵守阿拉善智能监控的产品和服务规定，应如实提供阿拉善智能监控要求的相应证件(身份证、驾照等证件)。会员的资料发生变更(如工作变动、住址迁移、联系方式变动或单位名称变更、单位迁址等信息等)时，应及时通知阿拉善智能监控。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员不得用租赁车辆进行违法活动，不得参加各类竞赛及作测试使用，不得进行赢利性质的运输，不得运送易燃、易爆、易腐蚀品，不得在坏损或非正式路面上行驶，凡因上述原因造成车辆损坏或公安部门的扣车、对车主罚款等发生的一切费用和损失均由会员承担。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　由于会员原因致使车辆牌照、车钥匙、证件等物品丢失，除支付补办相关物品的全部费用外，还应当支付补办相关物品期间给阿拉善智能监控造成的营业损失。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员在租赁期间对使用车辆所造成的侵权或违法及其他间接损失承担赔偿责任。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员自行承担租期内除去国家规定的新能源汽车免费</span><span style="">政策</span><span style="">外的其他费用，如停车费，</span><span-->
+                <!--style="">不在</span><span style="">阿拉善智能监控指</span><span style="">定</span><span style="">内</span><span-->
+                <!--style="">的充电桩</span><span style="">充电</span><span style="">所需的充电</span><span style="">费等。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　</span><strong><span style="; ">　第四章 会员违约</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　</span><span style="">　</span><span style="">(1)提供虚假信息，或盗用他人信息的;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(2)未按约定用途使用车辆的;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(3)转卖、抵押、典当、转借、转租或确有证据证明可能存在上述情况时;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(4)不按协议约定交纳租金及各项费用、使用租赁车辆、保管租赁车辆、归还租赁车辆的;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(5)会员利用租赁车辆从事违法犯罪活动的;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(6)擅自改装、更换、增设它物的;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(7)利用任何方式方法危害阿拉善智能监控平台安全的;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(8)利用阿拉善智能监控或其提供的车辆，损害任何第三人合法权益的;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(9)复制、发布含有下列内容信息的：</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　a. 危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　b. 损害国家荣誉和利益;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　c. 煽动民族仇恨、民族歧视，破坏民族团结;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　d. 破坏国家宗教政策，宣扬邪教和封建迷信;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　e. 散布谣言，扰乱社会秩序，破坏社会稳定;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　f. 散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　g. 恶意诋毁阿拉善智能监控的(包括在阿拉善智能监控平台，以及在其他任何地方);</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　h. 含有法律、行政法规禁止的其他内容。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员出现上述违约责任情形阿拉善智能监控可随时解除协议收回车辆，并对会员账号进行冻结， 对此造成的所有损失阿拉善智能监控将不承担任何责任。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　</span><strong><span style="; ">第五章 订单修改说明</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　由于电动汽车的特殊性，</span><span style="">下单后</span><span style="">已支付生成的订单不可修改，如订单生成后还</span><span-->
+                <!--style="">未</span><span style="">支付需要修改订单的可取消重新申请。</span></p>-->
+
+        <!--<p class="NormalWeb"><strong><span style="; ">　　第六章 取车说明</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　在订单开始的时间点，您需要根据车主车辆信息中所填写的“取车地址”前往取车，如对取车地点不了解请致电客服热线：4008838026</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　取车时应提供预订车辆时提交的本人身份证和驾驶本(含附件)，已确保预订的真实性。</span></p>-->
+
+        <!--<p class="NormalWeb"><strong><span style="; ">　　第七章 还车说明</span></strong></p>-->
+
+        <!--<p class="NormalWeb" style="text-indent:18pt"><span-->
+                <!--style="; background-color:#ffff00">还车时间以车场管理员操作还车完成后时间为准。</span></p>-->
+
+        <!--<p class="NormalWeb" style="text-indent:18pt"><strong><span style="; ">第八章 超时说明</span></strong></p>-->
+
+        <!--<p class="NormalWeb" style="text-indent:18pt"><span style="; background-color:#ffff00">会员租用车辆期间阿拉善智能监控系统会不定时提醒您注意还车时间，请您在规定时间内还车，如遇超时阿拉善智能监控将收取超时费用100元。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><strong><span style="; ">　　第</span></strong><strong><span-->
+                <!--style="; ">九</span></strong><strong><span style="; ">章 保险与事故说明</span></strong><strong><span-->
+                <!--style="; background-color:#ffff00">(待定)</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　事故发生后无论会员是否购买保险均需要及时的报警报案并联系我公司客服中心。</span></p>-->
+
+        <!--<p class="NormalWeb"><span-->
+                <!--style="">　　会员对于在汽车使用期间发生任何保险理赔的问题，有责任全力配合阿拉善智能监控和保险公司的工作。 未能立即报告事故和配合事故调查，会员承担全部责任和费用。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员不得隐瞒租赁期内车辆发生的意外事故。如发生事故，会员应及时通知阿拉善智能监控客服中心(4008838026)，并及时向当地公安机关及保险公司报案，以便阿拉善智能监控协助处理保险理赔事宜。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员承租车辆期间发生交通事故，须到阿拉善智能监控指定的地点进行修理，在会员有责任的情况下，修理费由会员先行垫付，车辆停驶期间的租金照常计算;会员垫付的费用中保险公司理赔金额，在保险公司赔付款到账后由阿拉善智能监控在30个工作日内返还给会员。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　在会员有责任的情况下须在事故结案一个月内如实提供事故证明、交通管理部门出具的事故责任认定书、事故调解书、损失清单以及有关修理费用等单据。涉及人员伤亡的，会员应在保险公司规定的期限内提交判决书等相应单据。否则，视为会员自愿放弃索赔权益并承担相关损失。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　在会员有责任的情况下承担一切保险公司拒绝理赔部分的费用，会员该项赔付义务不因各方合作的终止而灭失。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　若涉及第三方责任，双方应互相协助保险公司追讨应由第三方承担的费用。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　租赁车辆发生各类机件故障、事故车修复，应当到阿拉善智能监控指定的修理厂进行修理。反之，会员应当支付由此造成的修理费用及(复原)返修费用和返修期间阿拉善智能监控的营业损失(损失以协议日租金为单位计算)由此给阿拉善智能监控或第三方造成其他损失的，会员应予赔偿。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　</span><strong><span style="; color:#c00000">注”</span></strong><span-->
+                <!--style="">无论会员是否购买保险服务，会员在租赁期间发生有责或无责事故需要进厂维修或者丢失证照需要补办等，为阿拉善智能监控造成直接损失和间接损失的，导致车辆无法正常运营的阿拉善智能监控均收取营运损失费用。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><strong><span style="; ">　　第</span></strong><strong><span-->
+                <!--style="; ">十</span></strong><strong><span style="; ">章 违章说明</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员将车交还阿拉善智能监控时阿拉善智能监控会在</span><strong><span-->
+                <!--style="; color:#ff0000; background-color:#ffff00">30天</span></strong><span style="">内查询您是否有违章信息，在此期间内不能申请押金退款。如有违章系统将自动扣除违章费用，扣除后会有短信通知您扣款成功，然后可申请押金退款。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><strong><span style="; ">　　第十</span></strong><strong><span-->
+                <!--style="; ">一</span></strong><strong><span style="; ">章 隐私保护说明</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　2.当您(用户)注册成功后，阿拉善智能监控会给予每位用户一个账号和相应的密码，该账号和密码由用户自行保管。凭该账号和密码可对阿拉善智能监控官网所提供的产品进行租赁，参与活动等权限。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　如遇到忘记密码可通过“找回密码”进行找回。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　3.为了提供更多优质服务，在法律允许范围内，阿拉善智能监控有权通过合法途径获取用户身份信息(如身份证照片等)用于为用户提供服务，用户信息的来源是通过合法途径所得，仅限于为用户提供服务。并且会绝对保护用户隐私，绝不在没有经过用户同意的情况下将用户信息透露给但三方。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　4.用户账号密码仅供用户个人使用，切勿将账号和密码泄露给陌生人及不信任的人，以免给您的账户带来安全隐患。</span></p>-->
+
+        <!--<p class="NormalWeb"><strong><span style="; ">　　免责条款</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　有下列情况之一的，阿拉善智能监控不承担任何法律责任：</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(1)由于您将用户密码告知他人或与他人共享注册帐户，或由于黑客获取了您的账户和密码而导致的任何个人资料泄露及由此造成的损失;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(2)任何由于计算机或移动终端的问题、黑客攻击、病毒侵入或发作、政府管制等造成的暂时性关闭，使网络无法正常运行而造成的个人资料泄露、丢失、被盗用或被窜改;</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(3)由于与本平台链接的其他网站或平台所造成的个人资料泄露及由此而导致的任何法律争议和后果;</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(4)因不可抗力而引起的任何后果。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　根据《中华人民共和国宪法》和相关法律法规规定，在保护公民合法言论自由的同时，禁止利用互联网、通讯工具、媒体以及其他方式从事以下行为：</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(1)组织、煽动抗拒、破坏宪法和法律、法规实施的。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(2)捏造或者歪曲事实，散布谣言，妨害社会管理秩序的。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　(3)组织、煽动非法集会、游行、示威、扰乱公共场所秩序的。</span></p>-->
+
+        <!--<p class="NormalWeb"><span-->
+                <!--style="">　　(4)从事其他侵犯国家、社会、集体利益和公民合法权益的。管理部门将依法严加监管上述行为并予以处理;对构成犯罪的，司法机关将追究刑事责任。</span></p>-->
+
+        <!--<p class="NormalWeb"><strong><span style="; ">　　第十</span></strong><strong><span-->
+                <!--style="; ">二</span></strong><strong><span style="; ">章 通知的发送</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　阿拉善智能监控通过会员注册时指定的邮箱、指定的手机号码、APP应用软件中通知栏或者微信消息向会员发送通知。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　通知于发送之日视为已送达会员，会员知悉并接受通知之内容。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　会员如有任何事宜需通知阿拉善智能监控，应当通过阿拉善智能监控对外正式公布的通信地址、传真号码、电子邮件地址等联系方式进行联系及送达。</span></p>-->
+
+        <!--<p class="NormalWeb"><strong><span style="; ">　　第十</span></strong><strong><span-->
+                <!--style="; ">三</span></strong><strong><span style="; ">章 附则</span></strong></p>-->
+
+        <!--<p class="NormalWeb"><span-->
+                <!--style="">　　如各方就本协议内容或其执行发生任何争议，各方应友好协商解决;协商不成时，任何一方均可向北京易行绿动信息技术有限公司所在地的人民法院提起诉讼。</span></p>-->
+
+        <!--<p class="NormalWeb"><span style="">　　阿拉善智能监控有权随时修改本协议的任何条款，包括会员服务计划的任何规定或终止当年会员服务计划，即使该等修改或终止会影响会员积分或者其他权利。一旦本协议的内容或者会员服务计划发生变动，阿拉善智能监控将会在平台上公布和使用修改之后的协议内容和服务内容，该公布和使用行为视为阿拉善智能监控已经通知会员修改内容。</span>-->
+        <!--</p>-->
+
+        <!--<p class="NormalWeb"><span-->
+                <!--style="">　　如果不同意阿拉善智能监控对本协议相关条款所做的修改，会员有权停止使用服务。如果会员继续使用服务，则视为会员接受阿拉善智能监控对本协议相关条款所做的修改。</span></p>-->
+
+        <!--<p>&#xa0;</p>-->
+        <!--</div>-->
+
+        <h5 style="text-align: center;font-weight: bold">北京易行绿动信息技术有限公司阿拉善智能监控会员协议</h5>
+
+        <b>&nbsp;&nbsp;&nbsp;&nbsp;北京易行绿动信息技术有限公司，以下简称<span>“</span>阿拉善智能监控“，竭诚为会员提供方便、安全、环保的电动汽车分时租赁服务。为明确会员的权利和义务，特制定本协议。</b>
+        </p><p class=\"MsoNormal\"><b>&nbsp;(一）用户在注册成为“阿拉善智能监控”会员并接受服务之前，<span>&nbsp;</span>需充分阅读、理解并接受本条款的全部内容。一旦用户注册使用“阿拉善智能监控”服务，即表示同意遵循本条款之所有约定。</b>
+        </p><p style="margin-left:0cm; "><br><b>（二）除符合本协议约定的或法律规定的解除协议的条件外，当事人变更解除协议必须签订书面协议。<span>&nbsp;</span></b>
+        </p><p class=\"MsoNormal\" align=\"left\" style="text-indent:24pt;"><b>&nbsp;</b></p><p
+            class=\"MsoNormal\" align=\"left\"><b>二、会员注册<span></span></b></p><p
+            class=\"MsoListParagraph\" align=\"left\"><br><b>（一）&nbsp;&nbsp; 会员资格<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>1、注册《阿拉善智能监控》会员，须具有法律规定的完全民事权利能力和民事行为能力，能够独立承担民事责任的自然人。凡年龄在<span>18</span>周岁（含）以上、持有中华人民共和国合法有效身份证件并具备法定汽车驾驶资格的中国公民，均可申请加入会员。<span></span></b>
+        </p><p class=\"MsoListParagraph\" align=\"left\" style="text-indent:-18pt;"><br><b>2、 不具备前述条件的，您应立即终止注册或停止使用本服务。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>（二）会员资料<span></span></b></p><p
+            class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>1、为提供方便快捷的服务，会员需如实向阿拉善智能监控提供要求的相应证件（身份证、驾照等证件），并提供家庭住址、紧急联系人相关信息。会员的个人信息仅供阿拉善智能监控提供服务时使用。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>2、会员的资料发生变更（如工作变动、住址迁移等）时，应及时提交更新资料。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>3、注册会员应对身份资料的真实性和驾驶资格负全部责任。在注册过程中，阿拉善智能监控将对会员的资料进行审核，但不表示阿拉善智能监控对其中任意一项的真实性负有任何责任。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>4、<span>“</span>阿拉善智能监控<span>”</span>有权终止、冻结、暂停特定会员的资格和相关服务。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>三、车辆使用<span></span></b></p><p
+            class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>（一）驾驶资格<span></span></b></p>
+        <br><p class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>会员使用阿拉善智能监控服务，应确认具备合法合规的驾驶资格，并了解阿拉善智能监控所租赁相关汽车车型的驾驶和使用方式，如因不当驾驶或操作造成的所有损失，应由会员承担。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>（二）车辆用途<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;">
+        <br><b>会员在<span>“</span>阿拉善智能监控<span>”</span>平台租赁的车辆，仅供本人在约定的范围内使用。下列任何一种情况发生时，会员应承担相关的所有责任，阿拉善智能监控有权解除协议，收回车辆，并要求会员赔偿相应的经济损失。<span></span></b>
+        </p><p style="margin-left:0cm; ">
+        <br><b>1、会员利用阿拉善智能监控所提供车辆进行违法犯罪活动的；<span></span></b></p><p
+            style="margin-left:0cm; "><br><b>2、会员不按协议约定时间、地理范围使用车辆的；<span></span></b>
+    </p><br><p style="margin-left:0cm; "><b>3、将车辆转租或从事其他运营业务的。<span></span></b></p>
+        <br><p style="margin-left:0cm; "><b>4、在车辆上设抵押、质押等他项权利的；<span></span></b></p>
+        <br><p style="margin-left:0cm; "><b>5、将车辆交给无驾驶证者、或不满一年的驾驶员在高速公路上行驶的。<span></span></b>
+        </p><p style="margin-left:0cm; ">
+        <br><b>6、会员有损坏阿拉善智能监控车辆或其他损害阿拉善智能监控合法权益行为的。<span></span></b></p><p
+            style="margin-left:0cm; "><br><b>7、 违反阿拉善智能监控用户手册或其他相关规定，不适当使用车辆的。<span></span></b>
+        </p><p class=\"MsoNormal\"><b>（三）车辆的收回<span></span></b></p><p class=\"MsoNormal\"
+                                                                                             style="text-indent:20.0pt;">
+        <br><b>1、会员违反使用限制，阿拉善智能监控可在不向会员发出通知的情况下，终止其使用汽车的权利和会员资格。阿拉善智能监控保留法律规定的权利，包括但不限于不经过司法程序向会员发出通知而扣押汽车，会员有义务支付所有阿拉善智能监控将汽车追回所发生的费用。<span></span></b>
+        </p><p class=\"MsoNormal\" style="text-indent:20.0pt;"><br><b>2、如果会员在使用权利终止后继续使用汽车，阿拉善智能监控有权通知公安机关车辆被盗。</b>
+        </p><p style="margin-left:0cm; "><br><b>（四）车辆被盗和车辆损失<span></span></b></p><p
+            style="margin-left:0cm; ">
+        <br><b>1、会员应按协议约定正常使用车辆。因使用保管不当造成车辆损失的，会员应承担相应赔偿责任；<span></span></b></p><p
+            style="margin-left:0cm; "><br><b>2、车牌、证件及随车配件，均为阿拉善智能监控车辆出租的一部分。在租赁期间，会员负有保管和妥善使用之责任。车辆租赁期间丢失、损坏车牌证件及其他手续，应及时通知阿拉善智能监控。补办有关手续的费用及停运相关损失由会员承担。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>3、会员租赁期间<span>,</span>发动机与变速箱损失及车辆涉水行驶所造成损失均由会员承担。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>（五）年检、保养与维修<span></span></b></p><p
+            style="margin-left:0cm; "><br><b>1、会员需在协议期间内配合阿拉善智能监控进行正常保养及年检，会员应按阿拉善智能监控要求指定时间将车送至指定地点。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>2、如车辆在使用中出现故障或异常，会员应立即通知阿拉善智能监控或将车开至阿拉善智能监控指定维修处，不得自行拆卸，更换原车设备及零件，非正常使用造成的事故责任及损失费用均由会员承担。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>3、未经允许会员不可将车辆送至非阿拉善智能监控指定场所进行修理，阿拉善智能监控保留索赔权利。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>（六）个人物品<span></span></b></p><p
+            style="margin-left:0cm;text-indent:30.0pt; "><br><b>阿拉善智能监控不对会员在车内的个人财物的损坏或丢失负责。车内承载、放置或遗留的任何个人财物均不对阿拉善智能监控构成任何委托责任。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>四、会员付费与保证金<span></span></b></p><p
+            style=";text-indent:-36.0pt; ">
+        <br><b>（一）&nbsp;&nbsp; 保证金<span></span></b></p><p
+            style="; "><br><b>1、在阿拉善智能监控业务中，会员需要对账户进行一定数额的充值才能使用。这部分充值将作为合理使用车辆和事故、违章处理的保证金。在需要会员承担约定责任时，阿拉善智能监控可从账户中直接扣除，无需提前告知。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        2、在会员结束所有订单，并确认无未处理车损事故、违章等情况之后，保证金可以退还会员（确认无违章一般需要两周以上时间）。<span></span></b></p><p
+            style=";text-indent:-36.0pt; ">
+        <br><b>（二）&nbsp;&nbsp; 支付<span></span></b></p><p
+            style="; "><br><b>阿拉善智能监控仅接受自身网络系统支持的付款方式。会员应保护自有支付方式密码，不向会员服务或其他任何相关人员透露。阿拉善智能监控对因用户支付方式泄密造成的损失不承担责任。<span></span></b>
+        </p><p style=";text-indent:-36.0pt; ">
+        <br><b>（三）&nbsp;&nbsp; 优惠券及折扣<span></span></b></p><p
+            style="; "><br><b>阿拉善智能监控所发放的优惠券、赠送充值和其他任何形式的优惠活动或凭证，均只供消费者在阿拉善智能监控消费使用，并被视为一种价格折扣。不可兑换现金或其他等价物，也不开具发票。<span></span></b>
+        </p><p style=";text-indent:-36.0pt; ">
+        <br><b>（四）&nbsp;&nbsp; 延时还车费用<span></span></b></p><p
+            style="margin-left:0cm;text-indent:30.0pt; "><br><b>电动管家的服务中包含分时段的车辆租赁。如会员超出时限使用车辆，将收取延时费用。该金额依据时间或车型会有所不同。<span></span></b>
+        </p><p style=";text-indent:-36.0pt; ">
+        <br><b>（五）&nbsp;&nbsp; 其他费用<span></span></b></p><p
+            style="margin-left:0cm;text-indent:40.0pt; "><br><b>会员承担车辆协议期间的停车费、过路过桥费、高速公路费、违章罚款等费用。除阿拉善智能监控承诺的充电、停车优惠外，阿拉善智能监控不承担其他此类费用。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>五、车辆违章处理<span></span></b></p><p
+            class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>&nbsp;会员租期内的违章处罚及相关费用由会员自行承担，包括罚款、扣分及交通法规规定的其他责任。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\">
+        <br><b>（一）<span>&nbsp; </span>违反交通安全法规时，如现场被告知，会员应在被告知后的<span>5</span>日内接受处罚。如非现场被告知，会员应于一周内赴交通管理部门接受处罚。<span></span></b>
+        </p><p class=\"MsoListParagraph\" align=\"left\" style="text-indent:-36pt;">
+        <br><b>（二）&nbsp;&nbsp; 阿拉善智能监控可通知（包括电话告知及短信等方式）会员交通违章信息。<span></span></b></p><p
+            style="margin-left:0cm; "><br><b>（三）在接到阿拉善智能监控通知后两周内仍未自行办理相关手续的<span>,</span>阿拉善智能监控有权利追究会员的相关责任及通过法律途径解决违章。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>（四）会员未处理违章影响车辆年检及其他损失的，需承担相应损失。
+        <span></span></b></p><p style="margin-left:0cm; "><br><b>六、车辆事故与处理<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>（一）一般约定<span></span></b></p><p
+            style="margin-left:0cm; "><br><b>1、会员租赁车辆在发生事故时，应第一时间通知阿拉善智能监控租赁中心，并向保险公司提供有关证明。会员不得隐瞒租赁期内车辆发生的意外事故，否则，会员应承担保险公司不予赔偿的责任及有关的经济损失。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>2、因车辆续航里程不足造成的熄火和其他损失，不属于阿拉善智能监控保险事故，所造成的损失均由会员承担。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>3、发生事故后，会员对于在汽车使用期间发生任何保险理赔的问题，有责任全力配合阿拉善智能监控和保险公司的工作，履行到场和办理相关手续的义务。因未能配合相关工作，造成的损失由会员承担。<span></span></b>
+        </p><p style="margin-left:0cm; "><br><b>4、会员使用车辆期间，车辆被盗、损坏、报废、会员应继续承担保险事故发生之日至保险公司赔偿之日的协议内车辆抵押金。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>（二）保险公司手续<span></span></b></p><p
+            class=\"MsoNormal\" align=\"left\"><br><b>1、会员车辆出险后应第一时间向交通管理部门报案，告知交管部门损坏车辆所在地点。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\">
+        <br><b>（<span>1</span>）如果是单方事故，会员需通知阿拉善智能监控租赁中心进行初步估损。<span></span></b></p><p class=\"MsoNormal\"
+                                                                                                     align=\"left\">
+        <br><b>（<span>2</span>）双方事故及重大物损事故会员有义务现场用手机或其他拍摄设备照相以备保险公司后续取证。<span></span></b></p><p
+            class=\"MsoNormal\" align=\"left\"><br><b>（<span>3</span>）租赁车辆若发生非道路<span>(</span>如小区等<span>)</span>保险事故后会员应向公安管理部门报案，并<span>48</span>小时内向保险公司报案。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>（<span>4</span>）发生涉及人伤的事故，应及时抢救伤者、严重人伤向医疗部门报案，并及时向保险公司报案并向医疗核损部门咨询。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>（<span>5</span>）租赁车辆若发生盗抢事故，会员应立即向当地公安部门报案，同时向保险公司报案，之后还应配合保险公司理赔人员做笔录及现场勘查<span>;</span>到报社办理登报声明<span>;</span>到养路费稽核处办理停驶手续。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>三个月内被盗车辆找回，保险公司赔付因盗抢引起的修理费用，三个月后车还未找回则需到保险公司办理权益转让书，向保险公司提交索赔手续，办理理赔。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>（三）处理步骤</b> </p><p
+            class=\"MsoNormal\"><br><b>1、得交警证明<span></span></b></p><h4
+            style="margin-left:0cm;text-indent:20.0pt; "><br><span style=\"font-size:12px;\">出示行驶证、驾驶证、身份证，现场交警填写《交通事故责任认定书》。现场交警根据各方陈述，对事故进行勘察后作出事故认定及责任划分，如无争议，会员需填写《交通事故责任认定书》。</span>
+        <br></h4><br><p class=\"MsoNormal\" style="text-indent:20.0pt;"><br><b>双方事故交警不能出现场时，需自行填写《快速处理协议书》一式两份，三者车主填写后会员需保留至理赔结束。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>2、打电话向保险公司报案，初步告知车辆损失部位及损伤程度，记录报案号等待保险公司查勘人员至现场定损。<span></span></b>
+        </p><p class=\"MsoNormal\"><b>3、保险公司查勘人员完成现场查勘初步定损工作，签收审核索赔单证，填写《机动车辆保险出险<span>/</span>索赔通知书》，事故双方签字确认后至查勘人员指定定损中心配合定损。<span></span></b>
+        </p><p class=\"MsoNormal\"><b>（四）理赔单据的提供<span></span></b></p><p class=\"MsoNormal\">
+        <br><b>1、在会员有责任的情况下须如实提供事故证明、交通管理部门出具的事故责任认定书、事故调解书、损失清单以及有关修理费用等单据。<span></span></b></p><p
+            class=\"MsoNormal\"><br><b>2、涉及人员伤亡的，会员应在保险公司规定的期限内提交判决书等相应单据。否则，视为会员自愿放弃索赔权益并承担相关损失。在会员有责任的情况下承担一切保险公司拒绝理赔部分的费用，会员该项赔付义务不因各方合作的终止而灭失。<span></span></b>
+        </p><p class=\"MsoNormal\"><b>3、若涉及第三方责任，双方应互相协助保险公司追讨应由第三方承担的费用。<span></span></b></p>
+        <br><p class=\"MsoNormal\"><br><b>4、会员需收集齐全索赔资料交到保险公司并办理索赔手续，保险公司的财务人员根据理赔人员理算后的金额，向阿拉善智能监控的指定帐户划拨所有赔款，如会员无法提供相应理赔资料造成赔款无法及时到账导致阿拉善智能监控的一切损失由会员负责赔偿。<span></span></b>
+        </p><p class=\"MsoNormal\"><b>（五）损失赔偿<span></span></b></p><p class=\"MsoNormal\">
+        <br><b>1、根据交通责任认定会员需按相应的事故责任赔率承担车辆损失金额。单方事故为<span>100%</span>，双方事故根据《交通事故责任认定书》所注明责任比例承担，此责任赔率由阿拉善智能监控确定。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>2、损失预计低于<span>2000</span>元人民币的单方非人伤无物损事故，由阿拉善智能监控负责解决以及善后维修。估损方法及价值确定由阿拉善智能监控负责最终勘定。<span></span></b>
+        </p><p class=\"MsoNormal\">
+        <br><b>3、阿拉善智能监控不承担本协议期间会员用户使用车辆给本人或第三人造成的人身和财产损害的保险赔偿以外的赔偿责任。<span></span></b></p><p
+            class=\"MsoNormal\">
+        <br><b>4、租赁车辆在停放过程中无人照料的情况下被不明物体碰撞损坏，但第三方车辆无法找到，该类案件保险公司只承担<span>70%</span>的赔偿责任，会员需负担剩余<span>30%</span>的损失维修费用。保险公司定损人员没有定损的车辆不能自行修理。<span></span></b>
+        </p><p class=\"MsoNormal\"><b>5、事故车必须按定损项目及定损金额进行修理，若有项目及费用的变动，会员应事先与保险公司协商并告知阿拉善智能监控，否则由此产生的额外费用由会员自行承担。</b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>6、租赁车辆发生各类机件故障、事故车修复，应当到阿拉善智能监控指定的修理厂进行修理。反之，会员应当支付由此造成的修理费用及（复原）返修费用和返修期间阿拉善智能监控的营业损失（损失以协议整日租金为单位计算）由此给阿拉善智能监控或第三方造成其他损失的，会员应予赔偿。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>（六）道路救援<span></span></b></p><p
+            class=\"MsoNormal\" align=\"left\" style="text-indent:20pt;"><br><b>阿拉善智能监控在北京市行政区域内提供不超过<span>50</span>公里免费救援
+        &nbsp;。如超出救援范围，或会员自行联系救援公司产生的救援费用由会员自负。<span></span></b></p><p class=\"MsoNormal\"
+                                                                                       align=\"left\">
+        <br><b>七、免责条款</b><br/><br>&nbsp;<b>有下列情况之一的，阿拉善智能监控不承担任何法律责任：<span><br/><br>&nbsp;&nbsp;&nbsp;1</span>、由于会员将用户密码告知他人或与他人共享注册帐户，或由于黑客获取了您的账户和密码而导致的任何个人资料泄露及由此造成的损失；<span><br/><br>&nbsp;&nbsp;&nbsp;2</span>、任何由于计算机或移动终端的问题、黑客攻击、病毒侵入或发作、政府管制等造成的暂时性关闭，使网络无法正常运行而造成的个人资料泄露、丢失、被盗用或被窜改；<span><br/><br>&nbsp;&nbsp;&nbsp;3</span>、由于与本平台链接的其他网站或平台所造成的个人资料泄露及由此而导致的任何法律争议和后果；<span><br/><br>&nbsp;&nbsp;&nbsp;4</span>、因不可抗力而引起的任何后果。<span></span></b>
+        </p><p class=\"MsoNormal\" align=\"left\"><br><b>八、附则<span></span></b></p><p
+            class=\"MsoListParagraph\" align=\"left\" style="text-indent:-36pt;"><br><b>（一）&nbsp;&nbsp; 各方就本协议内容或其执行发生任何争议，各方应友好协商解决。<span></span></b>
+        </p><p class=\"MsoListParagraph\" align=\"left\" style="text-indent:-36pt;">
+        <br><b>（二）&nbsp;&nbsp; 阿拉善智能监控有权随时修改本协议的任何条款，包括会员服务计划的任何规定或终止会员服务计划，即使该等修改或终止会影响会员其他权利。一旦本协议的内容或者会员服务计划发生变动，阿拉善智能监控将会在平台上公布和使用修改之后的协议内容和服务内容，该公布和使用行为视为阿拉善智能监控已经通知会员修改内容<span></span></b>
+        </p><p class=\"MsoListParagraph\" align=\"left\" style="text-indent:-36pt;">
+        <br><b>（三）&nbsp;&nbsp; 如果不同意阿拉善智能监控对本协议相关条款所做的修改，会员有权停止使用服务。如果会员继续使用服务，则视为会员接受阿拉善智能监控对本协议相关条款所做的修改。<span></span></b>
+        </p><p class=\"MsoListParagraph\" align=\"left\" style="text-indent:-36pt;">
+        <br><b>（四）&nbsp;&nbsp; 本协议由阿拉善智能监控制定，阿拉善智能监控拥有最终解释权。</b> </p>
+    </ion-content>
+</ion-view>

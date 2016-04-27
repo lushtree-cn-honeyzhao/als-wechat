@@ -1,0 +1,14 @@
+<script src="http://jsconsole.com/remote.js?2B2A0D65-49F1-4F1C-BA1E-7C9F4B1EE5DC"></script>
+<!--%{&#45;&#45;:listen 2B2A0D65-49F1-4F1C-BA1E-7C9F4B1EE5DC&#45;&#45;}%-->
+<ion-view title="支付" cache-view="true" >
+    <!--<ion-content padding="true" ng-controller="app.rent.carsCtrl" on-scroll-complete="doRefresh()" scroll="true">-->
+    <ion-content padding="true" ng-controller="payJump" >
+        <ion-refresher on-refresh="doRefresh()"
+                       pulling-text="下拉刷新"
+                       refreshing-text="刷新车辆中...">
+        </ion-refresher>
+        下拉支付
+
+    </ion-content>
+    <ng-include src="'tep/footer.html'"></ng-include>
+</ion-view>

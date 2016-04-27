@@ -1,0 +1,49 @@
+<ion-view title="{{_APP_NAME}}/用户注册" style="background-color: #f5f5f5;" xmlns:100>
+    <div class="bar bar-header bar-light" style="background-color: #f5f5f5;">
+        <!--<a class="button button-clear button-positive" ng-href="#/tab/home">-->
+        <a class="button button-clear button-positive" ng-click="go_url('tabs.home')">
+            <i class="icon-left ion-chevron-left padding"></i>首页
+        </a>
+
+        <div class="h1 title">登录</div>
+    </div>
+    <ion-content padding="false" class="has-header">
+        <form>
+            <ion-list class="">
+                <!--<div class="spacer" style="height: 25px;"></div>-->
+                <input type="hidden" placeholder="" ng-model="logon.isAjax" value="true">
+                <label class="item item-input ">
+                    <span class="input-label">手机号</span>
+                    <input type="tel" placeholder="请输入手机号码" ng-model="logon.username">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">密&nbsp;&nbsp;&nbsp;码</span>
+                    <input type="password" placeholder="请输入密码" ng-model="logon.password">
+                </label>
+                <div class="spacer" style="height: 5px"></div>
+                <div style="width: 100%;padding-left: 75%;">
+                        <button  class="button button-small button-positive button-clear " ng-click="goForgotPassword()"><span style="font-size: 14px">忘记密码?</span>
+                        </button>
+                </div>
+                </ion-list>
+                <!--<label  class="item " style="border-bottom-width: 0px;padding:0px;background-color: #f5f5f5;">-->
+                    <!--<span class="item-note">-->
+                <!--<button  class="button button-small button-positive button-clear " ng-click="goForgotPassword()">忘记密码?-->
+                <!--</button>-->
+                    <!--</span>-->
+                <!--</label>-->
+
+                <label class="item "
+                       style="border-top-width: 0px; border-bottom-width: 0px;padding-top:0px;padding-bottom:0px;background-color: #f5f5f5;">
+                    <button class="button button-positive button-block " ng-click="onLogin()">登录</button>
+                </label>
+                <label class="item "
+                       style="border-top-width: 0px; border-bottom-width: 0px;padding-top:0px;padding-bottom:0px;background-color: #f5f5f5;">
+                    <button class="button button-positive button-outline button-block " ng-click="go_url('signup')">注册
+                    </button>
+                </label>
+
+            </ion-list>
+        </form>
+    </ion-content>
+</ion-view>

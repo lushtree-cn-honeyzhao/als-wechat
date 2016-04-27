@@ -1,0 +1,133 @@
+<style>
+    .button.button-dcgj {
+        border-color: #e21f1d;
+        background-color: #e21f1d;
+        color: #fff; }
+    .button.button-dcgj:hover {
+        color: #fff;
+        text-decoration: none; }
+    .button.button-dcgj.active, .button.button-dcgj.activated {
+        /*border-color: #eb5218;*/
+        /*background-color: #eB6218; */
+        border-color: #e21f1d;
+        background-color: #e21f1d;
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+    .button.button-dcgj.button-clear {
+        border-color: transparent;
+        background: none;
+        box-shadow: none;
+        color: #eb5218; }
+    img.top1{
+        margin-top: 35px;
+        position:relative;
+        z-index:1;
+        width: 70%;
+        height: 310px;
+    }
+    img.top2{
+        position:absolute;
+        left:0px;
+        top:0px;
+        z-index:1;
+        width: 100%;
+        margin-top: 250px;
+        height: 100px;
+        /*filter:alpha(opacity=60);*/
+        /*/!* CSS3 standard *!/*/
+        /*opacity:0.6;*/
+    }
+.showDiv span{
+    color:#fff
+}
+</style>
+<ion-view  title="{{_APP_NAME}}/0元租车" style="background-color: #ffffff;">
+    <ion-content padding="false" class="no-header">
+        <!--<div class="item item-text-wrap" style="text-align:center;  border-bottom-width: 0px;border-top-width: 0px;background-color: #ffffff;padding:0px; background-image: url('img/rentcar/dcgj_reg_bg.png');background-repeat:no-repeat;background-position:bottom;color:#fff;">-->
+            <!--&lt;!&ndash;<img src="img/rentcar/dcgj_reg_bg.png" style="width: 100%;height:176px;">&ndash;&gt;-->
+            <!--<div style="padding-bottom: 15px;padding-top: 35px; font-size: 24px;font-family: 方正正粗黑简体, 宋体,sans-serif;">-->
+                <!--<strong>阿拉善智能监控</strong>-->
+            <!--</div>-->
+            <!--<div style="padding-bottom: 15px;padding-top: 15px; font-size: 40px;">-->
+                <!--<strong>免费租车一天</strong>-->
+            <!--</div>-->
+            <!--<div style="padding-bottom: 40px;padding-top: 15px; font-size: 16px;">-->
+                <!--<strong>新用户获得50元租车代金券</strong>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="spacer" style="height: 40px;"></div>-->
+        <!--<img src="img/dcgj/top.png"  style="width: 100%;height:30%;"/>-->
+
+        <div class="top" style="position: relative;text-align: center;background-color: #e21f1d">
+        <img src="img/dcgj/top3.png" class="top1"/>
+        <img src="img/dcgj/top4.png" class="top2"/>
+        </div>
+
+
+        <div class="item" style="border-bottom-width: 0px;border-top-width: 0px; padding-left: 30px;padding-right: 30px;padding-bottom: 10px;padding-top: 5px;">
+        <form>
+            <label class="item item-input-inset " name="phoneNum" style="background-color: #eee;">
+                <!--<span class="input-label text-right" style="width: 95px;">手机号</span>-->
+                <label class="item-input-wrapper">
+                    <input type="text" class="full-image" placeholder="手机号码" ng-model="register.phoneNum" style="height: 30px;">
+                </label>
+            </label>
+
+            <div class="item item-input-inset " style="background-color: #eee;">
+                <!--<span class="input-label">验证码</span>-->
+                <label class="item-input-wrapper">
+                    <!--<span class="input-label">手机号</span>-->
+                    <input type="text" class="full-image" style="height: 30px;" ng-model="register.vaildCode" placeholder="短信验证码">
+                </label>
+                <button class="button button-small  button-dcgj button-clear {{buttonFlag2}}" style="width:110px;height: 20px;padding-top: 0px;padding-bottom: 0px;margin-bottom: 0px;margin-top: 0px;" ng-click="getValidCode('button-dcgj')">
+                    {{timer2}}
+                    <!--获取验证码（60S）-->
+                </button>
+            </div>
+            <div class="item item-input-inset " style="background-color: #eee;" >
+                <label class="item-input-wrapper">
+                    <input type="password" class="full-image" placeholder="登录密码 （6-16位数字或字母）" ng-model="register.userPassword" style="height: 30px;width:100%; ">
+                </label>
+            </div>
+        </form>
+        </div>
+        <div class="item item-text-wrap" style="text-align:center;  border-bottom-width: 0px;border-top-width: 0px;background-color: #ffffff;">
+            <button class="button button-small button-dcgj " ng-click="onRegister('button-dcgj')" style="width: 150px;height: 20px;background-color: #e21f1d">
+                <strong>点击领取</strong>
+            </button>
+        </div>
+
+        <div style="width: 100%">
+            <label class="checkbox" style="padding-right: 0px;width: 8%;padding-left: 0px">
+                <input type="checkbox" ng-model="register.checked" ng-checked="register.checked">
+            </label>
+
+            <div style="float: right;margin-top: 10px;width: 90%;font-size: 12px;">
+                <span style="color:grey;">我已看过并同意阿拉善智能监控</span>
+                <!--<a ng-click="showRegistLicence()">-->
+                <!--<a ng-click="go_url('agreement')">-->
+                <span style="text-decoration:underline;color: #387ef5" ng-click="go_url('agreement',{registerType:'fromShare'})">《租车用户使用协议》</span>
+                <!--</a>-->
+            </div>
+        </div>
+
+        <!--<div class="item item-text-wrap" style="text-align:center;  border-bottom-width: 0px;border-top-width: 0px;background-color: #ffffff;padding-bottom: 0px;">-->
+            <!--<img src="img/rentcar/dcgj_reg_car.png" style="width: 150px;height:126px;">-->
+        <!--</div>-->
+        <div class="item item-text-wrap " style="  border-bottom-width: 0px;background-color: #e21f1d;font-family: 方正正粗黑简体, 宋体; color:#fff">
+            <div style="padding-bottom: 15px;padding-top: 10px; font-size: 16px;font-family: 方正正粗黑简体, 宋体,sans-serif;text-align: center">
+                <strong>规则说明</strong>
+            </div>
+            <div style="padding-left: 20px;padding-right: 20px; padding-bottom: 30px;font-size: 13px;">
+                <!--<p ng-bind-html="strRgeister" class="showDiv">-->
+                <!--</p>-->
+                1.通过注册方式获得阿拉善智能监控70元租车代金券（仅限新用户）；<br>
+                <!--2.分享此页面，邀请好友，好友只要手机号注册成功后，您即获得20元租车代金券奖励；<br>-->
+                <!--3.您总计可获得不超过价值200元的邀请奖励；<br>-->
+                2.代金券使用有效期为：代金券的过期日期内；<br>
+                3.每笔订单只能使用一张代金券，每张代金券仅限使用一次，不叠加不拆分不找零；<br>
+                4.使用非正常途径或手段获得的代金券奖励无效，阿拉善智能监控保留最终解释权。 <br>
+        </div>
+            </div>
+    </ion-content>
+</ion-view>

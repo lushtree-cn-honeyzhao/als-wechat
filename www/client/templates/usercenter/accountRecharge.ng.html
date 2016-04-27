@@ -1,0 +1,50 @@
+<ion-view view-title="充值">
+    <div class="bar bar-header bar-light">
+        <a class="button button-clear button-positive"  ng-click="go_url('usercenterAccount')">
+            <i class="icon-left ion-chevron-left padding" ></i>我的账户
+        </a>
+    </div>
+    <ion-content class="has-header">
+        <div class="list">
+
+            <div class="item-divider row ">
+            </div>
+
+            <div class="item item-input-inset" style="padding: 16px;">
+                <!--<div class="item item-input-inset">-->
+                    <label style="font-size: 16px;">
+                        <strong>充值金额</strong>&nbsp;&nbsp;
+                    </label>
+                    <label class="item-input-wrapper">
+                        <input type="text" ng-model="recharge.amount">
+                    </label>
+                    <label >
+                        &nbsp;元
+                    </label>
+                <!--</div>-->
+
+            </div>
+            <div class="item stable-bg">
+                当前账户余额：<span class="positive">{{accountInfo.accountBalance}}</span>&nbsp;元
+            </div>
+            <div class="item">
+                <strong>充值方式</strong>
+            </div>
+            <li class="item item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="payWay" ng-init="payWay=true" ng-click="payWay=true">
+                </label>
+                微信支付
+            </li>
+            <!--<li class="item item-checkbox">-->
+                <!--<label class="checkbox">-->
+                    <!--<input type="checkbox" ng-checked="false">-->
+                <!--</label>-->
+                <!--绑定的信用卡支付-->
+            <!--</li>-->
+            <div class="item ">
+                <button class="button button-positive button-block " ng-click="submitRecharge()">确定</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
