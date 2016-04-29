@@ -142,75 +142,51 @@ angular.module('app.config').provider('router', ['$stateProvider', '$urlRouterPr
             url: '/payJump:orderId',
             templateUrl: 'client/templates/usercenter/payJump.ng.html'
         })
-            ////提交订单
-            //.state('orderCommitBase', {
-            //    url: '/orderCommitBase',
-            //    authCode: true,
-            //    templateUrl: 'client/templates/rentcar/orderCommit/orderCommit.ng.html'
-            //})
-            //.state('orderCommitBase.commit', {
-            //    url: '/orderCommit',
-            //    views: {
-            //        'rentInfo': {templateUrl: 'client/templates/rentcar/orderCommit/rentInfo.ng.html'},
-            //        'rentDays': {templateUrl: 'client/templates/rentcar/orderCommit/rentDays.ng.html'},
-            //        'coupons': {templateUrl: 'client/templates/rentcar/orderCommit/coupons.ng.html'},
-            //        'fees': {templateUrl: 'client/templates/rentcar/orderCommit/fees.ng.html'},
-            //        'pay': {templateUrl: 'client/templates/rentcar/orderCommit/pay.ng.html'}
-            //    }
-            //})
-            ////白天或晚上租车
-            //.state('dayRent', {templateUrl: 'client/templates/rentcar/rent.ng.html'})
-            //.state('dayRent.day', {
-            //    url: '/rentDay/{when}',
-            //    views: {
-            //        'carPoints': {templateUrl: 'client/templates/rentcar/carList/carPoints.ng.html'},
-            //        'carsList': {templateUrl: 'client/templates/rentcar/carList/carsList.ng.html'}
-            //    }
-            //})
-            // 白天或晚上租车
-            .state('rentCarNewOrder', {
-                //url: '/rentCar/newOrder/{type}/{rnd}',
-                url: '/rentCar/newOrder/{type}/{rnd}',
-                controller: 'RentCarNewOrderController',
-                templateUrl: 'client/templates/rentcar/rent_selectcar.ng.html'
-            }) //提交订单2
-            .state('rentCarPreviewOrder', {
-                url: '/rentCar/previewOrder/{rnd}',
-                controller: 'RentCarPreviewOrderController',
-                templateUrl: 'client/templates/rentcar/rent_preview_orders.ng.html'
-            })
-            .state('payBack', {
-                url: '/payBack',
-                templateUrl: 'client/templates/rentcar/payBack.ng.html'
-            })
-            //我的包月包列表
-            .state('myPackageList', {
-                url: '/servicePackage/mylist',
-                controller: 'MyPackListController',
-                templateUrl: 'client/templates/rentcar/servicePackage/myPackageList.ng.html'
-            })
-            //我的包月包列表-详情
-            .state('myServicePackages', {
-               // url: '/myServicePackages:packageId',
-                url: '/myServicePackages/{packageId}',
-                controller: 'ServicePackagesController',
-                templateUrl: 'client/templates/rentcar/servicePackage/myServicePackages.ng.html'
-            })
-            //购买白天包月
-            .state('buyDayPack', {
-                url: '/servicePackage/buyDayPack/{rnd}',
-                controller: 'BuyPackageController',
-                templateUrl: 'client/templates/rentcar/servicePackage/buyDayPack.ng.html'
-            })
-            //从首页购买整租包月-包月下单
-            .state('packageOrder', {
-                //url: '/servicePackage/packageOrder',
-                //url: '/servicePackage/packageOrder:packId',
-                url: '/servicePackage/packageOrder/{packId}/{rnd}',
-                //url: '/servicePackage/packageOrder/:packId',
-                controller: 'PackageOrderController',
-                templateUrl: 'client/templates/rentcar/servicePackage/packageOrder.ng.html'
-            })
+
+        // 白天或晚上租车
+        .state('rentCarNewOrder', {
+            //url: '/rentCar/newOrder/{type}/{rnd}',
+            url: '/rentCar/newOrder/{type}/{rnd}',
+            controller: 'RentCarNewOrderController',
+            templateUrl: 'client/templates/rentcar/rent_selectcar.ng.html'
+        }) //提交订单2
+        .state('rentCarPreviewOrder', {
+            url: '/rentCar/previewOrder/{rnd}',
+            controller: 'RentCarPreviewOrderController',
+            templateUrl: 'client/templates/rentcar/rent_preview_orders.ng.html'
+        })
+        .state('payBack', {
+            url: '/payBack',
+            templateUrl: 'client/templates/rentcar/payBack.ng.html'
+        })
+        //我的包月包列表
+        .state('myPackageList', {
+            url: '/servicePackage/mylist',
+            controller: 'MyPackListController',
+            templateUrl: 'client/templates/rentcar/servicePackage/myPackageList.ng.html'
+        })
+        //我的包月包列表-详情
+        .state('myServicePackages', {
+           // url: '/myServicePackages:packageId',
+            url: '/myServicePackages/{packageId}',
+            controller: 'ServicePackagesController',
+            templateUrl: 'client/templates/rentcar/servicePackage/myServicePackages.ng.html'
+        })
+        //购买白天包月
+        .state('buyDayPack', {
+            url: '/servicePackage/buyDayPack/{rnd}',
+            controller: 'BuyPackageController',
+            templateUrl: 'client/templates/rentcar/servicePackage/buyDayPack.ng.html'
+        })
+        //从首页购买整租包月-包月下单
+        .state('packageOrder', {
+            //url: '/servicePackage/packageOrder',
+            //url: '/servicePackage/packageOrder:packId',
+            url: '/servicePackage/packageOrder/{packId}/{rnd}',
+            //url: '/servicePackage/packageOrder/:packId',
+            controller: 'PackageOrderController',
+            templateUrl: 'client/templates/rentcar/servicePackage/packageOrder.ng.html'
+        })
 
 
     }]);
